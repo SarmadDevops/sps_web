@@ -17,10 +17,10 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { name: "Car", hasDropdown: true, route: "/car" },
+    { name: "Car", hasDropdown: false, route: "/car" },
     { name: "Bike", hasDropdown: false, route: "/bike" },
-    { name: "Health", hasDropdown: true, route: "/health" },
-    { name: "Travel", hasDropdown: true, route: "/travel" },
+    { name: "Health", hasDropdown: false, route: "/health" },
+    { name: "Travel", hasDropdown: false, route: "/travel" },
     { name: "Rent", hasDropdown: false, route: "/rent" },
     { name: "Kafala", hasDropdown: false, route: "/kafala" },
   ];
@@ -58,6 +58,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
+            <Link to="/">
             <div className="flex items-center lg:mx-8  w-[118.7px] h-[70px] xl:mx-0">
               <img
                 src="/splogo.png"
@@ -66,6 +67,7 @@ const Navbar = () => {
               />
               <img src="/securpathsolution.png" alt="Logo Text" className="" />
             </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-4 md:pl-10 lg:gap-12 lg:pl-0">

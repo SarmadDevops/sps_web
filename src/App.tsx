@@ -5,6 +5,7 @@ import Car from "./pages/Car";
 import Bike from "./pages/Bike";
 import Health from "./pages/Health";
 import Travel from "./pages/Travel";
+import Kafala from "./pages/Kafala";
 export default function App() {
   return (
     <div>
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/bike" element={<Bike />} />
         <Route path="/health" element={<Health />} />
         <Route path="/travel" element={<Travel />} />
+        <Route path="/kafala" element={<Kafala />} />
       </Routes>
     </div>
   );

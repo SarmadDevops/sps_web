@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+
+
+
 const ServicesSection1 = () => {
   const services = [
     {
@@ -6,6 +10,7 @@ const ServicesSection1 = () => {
       title: "Car",
       subtitle: "Insurance",
       description: "We are dedicated to helping the buyers of services",
+      route: "/car"
     },
     {
       id: "02",
@@ -13,6 +18,7 @@ const ServicesSection1 = () => {
       title: "Health",
       subtitle: "Insurance",
       description: "We are dedicated to helping the buyers of services",
+      route: "/health"
     },
     {
       id: "03",
@@ -20,6 +26,7 @@ const ServicesSection1 = () => {
       title: "Bike",
       subtitle: "Insurance",
       description: "We are dedicated to helping the buyers of services",
+      route: "/bike"
     },
     {
       id: "04",
@@ -27,6 +34,7 @@ const ServicesSection1 = () => {
       title: "Travel",
       subtitle: "Insurance",
       description: "We are dedicated to helping the buyers of services",
+      route: "/travel"
     },
   ];
 
@@ -58,6 +66,7 @@ const ServicesSection1 = () => {
                     <div className="bg-[#1894a4] text-white w-24 h-24 flex items-center justify-center rounded-bl-full font-bold text-3xl">
                       <span className="ml-4 mb-4">{service.id}</span>
                     </div>
+                   
                   </div>
 
                   {/* Icon */}
@@ -92,6 +101,7 @@ const ServicesSection1 = () => {
                   <p className="text-gray-600 text-sm leading-relaxed">
                     {service.description}
                   </p>
+                   <Link to={service.route} className="absolute inset-0"></Link>
                 </div>
               </div>
             );

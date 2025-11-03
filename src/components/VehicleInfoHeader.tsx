@@ -62,15 +62,19 @@ const VehicleInfoSection1 = ({
                 </div>
               </div>
             ) : (
-              /* Bike Layout - Image and buttons in same row (horizontal) */
-              <div className="flex items-center gap-6">
+              /* Bike/Travel Layout - Responsive: Image above buttons on small screens, side by side on larger screens */
+              <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
                 {/* Vehicle Image */}
-                <div className="flex justify-center">
-                  <img src={vehicleImage} alt="Bike" className="w-40 h-auto" />
+                <div className="flex justify-center md:justify-start">
+                  <img
+                    src={vehicleImage}
+                    alt={vehicleType === "travel" ? "Travel" : "Bike"}
+                    className="w-40 h-auto"
+                  />
                 </div>
 
-                {/* Category Buttons - next to the image in one line */}
-                <div className="flex gap-3">
+                {/* Category Buttons - below image on small screens, next to image on larger screens */}
+                <div className="flex flex-wrap gap-3 justify-center md:justify-start">
                   <button className="bg-[#1A3970] text-white px-6 py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors">
                     RENT
                   </button>

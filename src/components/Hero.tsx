@@ -3,6 +3,7 @@ interface HeroProps {
   title?: React.ReactNode;
   isCarPage?: boolean;
   isBikePage?: boolean;
+  isKafalaPage?: boolean;
   height?: string;
   titleSize?: string;
 }
@@ -12,12 +13,46 @@ const HeroSection = ({
   title = "Empowering Your Business Goal And Success Us",
   isCarPage = false,
   isBikePage = false,
+  isKafalaPage = false,
   height = "h-[500px] md:h-[600px] lg:h-[700px]",
   titleSize = "text-5xl md:text-6xl",
 }: HeroProps) => {
   return (
     <section className={`relative w-full ${height} overflow-hidden`}>
-      {isCarPage ? (
+      {isKafalaPage ? (
+        // Kafala Insurance Layout - Blue gradient left, image right
+        <div className="relative w-full h-full">
+          {/* Background Image on the right */}
+          <div className="absolute inset-0">
+            <img
+              src={backgroundImage}
+              alt="Kafala Insurance Business Meeting"
+              className="w-full h-full object-cover"
+              style={{ objectPosition: "right center" }}
+            />
+          </div>
+
+          {/* Blue gradient overlay from left */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#1A3970] via-[#1A3970]/95 to-transparent w-3/5 xl:w-1/2"></div>
+
+          {/* Text content on the left */}
+          <div className="relative z-10 h-full flex items-center">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 w-full">
+              <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
+                <h1
+                  className={`text-white ${titleSize} font-bold leading-tight`}
+                >
+                  {title}
+                </h1>
+                <p className="text-white/90 text-lg md:text-xl mt-4 leading-relaxed">
+                  Comprehensive protection for your employees and domestic
+                  workers
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : isCarPage ? (
         // Car Insurance Split Layout
         <div className="relative w-full h-full">
           {/* Background Image positioned to show both text and family */}

@@ -8,6 +8,8 @@ import {
   ChevronRight,
 } from "lucide-react";
 
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   const services = [
     "Business Consulting",
@@ -141,6 +143,7 @@ const Footer = () => {
 
             {/* Logo and Contact Column */}
             <div>
+              <Link to="/">
               <div className="flex items-center lg:mx-8  w-[118.7px] h-[70px] xl:mx-0">
                 <img
                   src="/splogo.png"
@@ -153,6 +156,7 @@ const Footer = () => {
                   className="filter brightness-0 invert"
                 />
               </div>
+              </Link>
 
               <div className="mb-6">
                 <h5 className="text-white font-semibold mb-2">Email Address</h5>
