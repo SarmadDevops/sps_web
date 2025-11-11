@@ -7,21 +7,22 @@ import Takaful from "../../../public/takaful.png";
 
 const InsuranceCard = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-between bg-[aliceblue] shadow-md rounded-lg p-6 md:p-8 gap-8 max-w-5xl mx-auto border border-gray-100 my-8">
-      {/* Left Section */}
-      <div className="flex-1 space-y-4">
+    <div className="w-full max-w-5xl mx-auto px-4">
+      <div className="flex flex-col md:flex-row justify-between bg-[aliceblue] shadow-md rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 my-8 overflow-hidden">
+        {/* Left Section */}
+        <div className="flex-1 min-w-0 space-y-4">
         {/* Header Info */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-sm text-gray-700">
-          <div>
-            <p>
+          <div className="min-w-0 flex-shrink">
+            <p className="truncate">
               <span className="font-semibold">Name:</span> Osama Bin Jahangir
             </p>
-            <p>
+            <p className="truncate">
               <span className="font-semibold">Email:</span>{" "}
               osamajahangir786@gmail.com
             </p>
           </div>
-          <div className="mt-2 sm:mt-0">
+          <div className="mt-2 sm:mt-0 flex-shrink-0">
             <p>
               <span className="font-semibold">Gender:</span> Male
             </p>
@@ -35,12 +36,14 @@ const InsuranceCard = () => {
         <hr className="border-gray-300" />
 
         {/* Middle Illustration */}
-        <div className="flex justify-center">
-          <img
-            src={Takaful}
-            alt="Accident Insurance"
-            className="w-34 h-34 object-contain"
-          />
+        <div className="flex justify-center w-full">
+          <div className="max-w-full">
+            <img
+              src={Takaful}
+              alt="Accident Insurance"
+              className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-40 lg:h-40 object-contain max-w-full mx-auto"
+            />
+          </div>
         </div>
 
         {/* Bottom Text */}
@@ -58,62 +61,62 @@ const InsuranceCard = () => {
         </div>
       </div>
 
-      {/* Right Section */}
-      <div className="flex-1 bg-gray-50 rounded-lg shadow-lg p-4 border border-gray-200">
-        <h3 className="text-center font-semibold text-gray-700 mb-4">
-          Takaful
-        </h3>
+        {/* Right Section */}
+        <div className="flex-1 min-w-0 bg-gray-50 rounded-lg shadow-lg p-3 sm:p-4 border border-gray-200">
+          <h3 className="text-center font-semibold text-gray-700 mb-3 sm:mb-4">
+            Takaful
+          </h3>
 
-        <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4">
           {/* Box 1 */}
-          <div className="flex flex-col items-center justify-center bg-blue-100 rounded-lg p-4 cursor-pointer hover:shadow-md transition">
-            <img src={card1} alt="Travel Takaful" className="w-10 h-10 mb-2" />
-            <p className="text-gray-700 text-sm font-medium">Travel Takaful</p>
+          <div className="flex flex-col items-center justify-center bg-blue-100 rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer hover:shadow-md transition">
+            <img src={card1} alt="Travel Takaful" className="w-8 h-8 sm:w-10 sm:h-10 mb-1 sm:mb-2" />
+            <p className="text-gray-700 text-xs sm:text-sm font-medium text-center">Travel Takaful</p>
           </div>
 
           {/* Box 2 */}
-          <div className="flex flex-col items-center justify-center bg-pink-100 rounded-lg p-4 cursor-pointer hover:shadow-md transition">
+          <div className="flex flex-col items-center justify-center bg-pink-100 rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer hover:shadow-md transition">
             <img
               src={card2}
               alt="Group Health Takaful"
-              className="w-10 h-10 mb-2"
+              className="w-8 h-8 sm:w-10 sm:h-10 mb-1 sm:mb-2"
             />
-            <p className="text-gray-700 text-sm font-medium">
+            <p className="text-gray-700 text-xs sm:text-sm font-medium text-center">
               Group Health Takaful
             </p>
           </div>
 
           {/* Box 3 */}
-          <div className="flex flex-col items-center justify-center bg-yellow-100 rounded-lg p-4 cursor-pointer hover:shadow-md transition">
+          <div className="flex flex-col items-center justify-center bg-yellow-100 rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer hover:shadow-md transition">
             <img
               src={card3}
               alt="Motor Car Takaful"
-              className="w-10 h-10 mb-2"
+              className="w-8 h-8 sm:w-10 sm:h-10 mb-1 sm:mb-2"
             />
-            <p className="text-gray-700 text-sm font-medium">
+            <p className="text-gray-700 text-xs sm:text-sm font-medium text-center">
               Motor Car Takaful
             </p>
           </div>
 
           {/* Box 4 */}
-          <div className="flex flex-col items-center justify-center bg-purple-100 rounded-lg p-4 cursor-pointer hover:shadow-md transition">
-            <img src={card4} alt="Bike Takaful" className="w-10 h-10 mb-2" />
-            <p className="text-gray-700 text-sm font-medium">Bike Takaful</p>
+          <div className="flex flex-col items-center justify-center bg-purple-100 rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer hover:shadow-md transition">
+            <img src={card4} alt="Bike Takaful" className="w-8 h-8 sm:w-10 sm:h-10 mb-1 sm:mb-2" />
+            <p className="text-gray-700 text-xs sm:text-sm font-medium text-center">Bike Takaful</p>
           </div>
 
           {/* 🔥 New Box 5 - Fire Takaful */}
-       {/* 🔥 New Box 5 - Fire Takaful (image & text side by side) */}
-<div className="col-span-2 flex items-center justify-center bg-[#FFCDCE] rounded-lg p-4 cursor-pointer hover:shadow-md transition gap-3">
-  <img
-    src={card5}
-    alt="Fire Takaful"
-    className="w-12 h-12 object-contain"
-  />
-  <p className="text-gray-700 text-base font-semibold">Fire Takaful</p>
-</div>
-
+                 {/* 🔥 New Box 5 - Fire Takaful (image & text side by side) */}
+          <div className="col-span-2 flex items-center justify-center bg-[#FFCDCE] rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer hover:shadow-md transition gap-2 sm:gap-3">
+            <img
+              src={card5}
+              alt="Fire Takaful"
+              className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+            />
+            <p className="text-gray-700 text-sm sm:text-base font-semibold">Fire Takaful</p>
+          </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
