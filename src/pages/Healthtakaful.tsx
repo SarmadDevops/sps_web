@@ -1,14 +1,14 @@
-import FAQSection from "../components/common/FAQsection";
-import Footer from "../components/common/Footer";
-import HeroSection from "../components/common/Hero";
 import Navbar from "../components/common/Navbar";
-
+import Footer from "../components/common/Footer";
 import InsuranceCard from "../components/Takaful/InsuranceCard";
-const Takaful = () => {
+import HeroSection from "../components/common/Hero";
+import FAQSection from "../components/common/FAQsection";
+
+const Healthtakaful = () => {
   return (
-    <>
+    <div className="min-h-screen bg-gray-50">
       <Navbar />
-      <HeroSection
+       <HeroSection
         backgroundImage="/Kafalaheroimage.png"
         title={
           <>
@@ -21,13 +21,11 @@ const Takaful = () => {
         height="h-[400px] md:h-[450px] lg:h-[500px]"
         titleSize="text-4xl md:text-5xl"
       />
-    
-
-      <InsuranceCard/>
+      <InsuranceCard showForm={true} />
       <FAQSection />
       <Footer />
-    </>
+    </div>
   );
 };
 
-export default Takaful;
+export default Healthtakaful;
