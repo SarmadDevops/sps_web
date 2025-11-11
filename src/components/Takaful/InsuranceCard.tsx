@@ -21,6 +21,10 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
     navigate("/healthtakaful");
   };
 
+  const handleCarTakafulClick = () => {
+    navigate("/car-takaful");
+  };
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -128,7 +132,10 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                 </div>
 
                 {/* Box 3 */}
-                <div className="flex flex-col items-center justify-center bg-yellow-100 rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer hover:shadow-md transition">
+                <div
+                  onClick={handleCarTakafulClick}
+                  className="flex flex-col items-center justify-center bg-yellow-100 rounded-lg p-2 sm:p-3 md:p-4 cursor-pointer hover:shadow-md transition"
+                >
                   <img
                     src={card3}
                     alt="Motor Car Takaful"
@@ -176,7 +183,7 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                 {healthTakafulFormFields.map((field) => {
                   // Skip employeeCount here, we'll handle it with city
                   if (field.name === "employeeCount") return null;
-                  
+
                   return (
                     <div key={field.name}>
                       {field.name === "city" ? (
@@ -196,7 +203,7 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                               </option>
                             ))}
                           </select>
-                          
+
                           <select
                             name="employeeCount"
                             value={formData.employeeCount || ""}
@@ -205,11 +212,13 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                             required
                           >
                             <option value="">Number of employees</option>
-                            {healthTakafulFormFields.find(f => f.name === "employeeCount")?.options?.map((option) => (
-                              <option key={option.value} value={option.value}>
-                                {option.label}
-                              </option>
-                            ))}
+                            {healthTakafulFormFields
+                              .find((f) => f.name === "employeeCount")
+                              ?.options?.map((option) => (
+                                <option key={option.value} value={option.value}>
+                                  {option.label}
+                                </option>
+                              ))}
                           </select>
                         </div>
                       ) : field.type === "select" ? (
