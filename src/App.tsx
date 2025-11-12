@@ -11,9 +11,9 @@ import Contactus from "./pages/Contactus";
 import Pricingplan from "./pages/Pricingplan";
 import TravelTakaful from "./pages/TravelTakaful";
 import CarTakaful from "./pages/CarTakaful";
-import FireTakaful from "./pages/FireTakaful";
+
 import Healthtakaful from "./pages/Healthtakaful";
-import BikeTakaful from "./pages/BikeTakaful";
+
 export default function App() {
   return (
     <div className="overflow-x-hidden">
