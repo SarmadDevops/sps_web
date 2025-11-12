@@ -25,15 +25,24 @@ interface Props {
   onBack: () => void;
 }
 
-const BikeTakafulQuote: React.FC<Props> = ({ formData, selectedQuote, onBack }) => {
+const BikeTakafulQuote: React.FC<Props> = ({
+  formData,
+  selectedQuote,
+  onBack,
+}) => {
   const [contact, setContact] = useState({ name: "", phone: "", email: "" });
   const [errors, setErrors] = useState({ name: "", phone: "", email: "" });
 
   const validate = () => {
-    const err: any = {};
+    const err: { name: string; phone: string; email: string } = {
+      name: "",
+      phone: "",
+      email: "",
+    };
     if (!contact.name.trim()) err.name = "Full name is required";
     if (!contact.phone.trim()) err.phone = "Phone number is required";
-    else if (!/^\d{10,15}$/.test(contact.phone)) err.phone = "Invalid phone number";
+    else if (!/^\d{10,15}$/.test(contact.phone))
+      err.phone = "Invalid phone number";
     if (!contact.email.trim()) err.email = "Email is required";
     else if (!/\S+@\S+\.\S+/.test(contact.email)) err.email = "Invalid email";
     setErrors(err);
@@ -64,43 +73,69 @@ const BikeTakafulQuote: React.FC<Props> = ({ formData, selectedQuote, onBack }) 
             </div>
           </div>
 
-          <h2 className="text-lg font-semibold text-[#1A3970] mb-6">Get Free Bike Takaful Quote</h2>
+          <h2 className="text-lg font-semibold text-[#1A3970] mb-6">
+            Get Free Bike Takaful Quote
+          </h2>
 
           <div className="space-y-5">
             <div>
-              <label className="block text-sm font-medium mb-1 text-gray-700">Your Full Name *</label>
+              <label className="block text-sm font-medium mb-1 text-gray-700">
+                Your Full Name *
+              </label>
               <input
                 type="text"
                 placeholder="Enter your full name"
                 value={contact.name}
-                onChange={(e) => setContact({ ...contact, name: e.target.value })}
-                className={`w-full border ${errors.name ? "border-red-500" : "border-gray-300"} rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
+                onChange={(e) =>
+                  setContact({ ...contact, name: e.target.value })
+                }
+                className={`w-full border ${
+                  errors.name ? "border-red-500" : "border-gray-300"
+                } rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
               />
-              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
+              {errors.name && (
+                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+              )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1 text-gray-700">Phone Number *</label>
+              <label className="block text-sm font-medium mb-1 text-gray-700">
+                Phone Number *
+              </label>
               <input
                 type="text"
                 placeholder="Enter your phone number"
                 value={contact.phone}
-                onChange={(e) => setContact({ ...contact, phone: e.target.value })}
-                className={`w-full border ${errors.phone ? "border-red-500" : "border-gray-300"} rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
+                onChange={(e) =>
+                  setContact({ ...contact, phone: e.target.value })
+                }
+                className={`w-full border ${
+                  errors.phone ? "border-red-500" : "border-gray-300"
+                } rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
               />
-              {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
+              {errors.phone && (
+                <p className="text-red-500 text-sm mt-1">{errors.phone}</p>
+              )}
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1 text-gray-700">Email Address *</label>
+              <label className="block text-sm font-medium mb-1 text-gray-700">
+                Email Address *
+              </label>
               <input
                 type="email"
                 placeholder="Enter your email"
                 value={contact.email}
-                onChange={(e) => setContact({ ...contact, email: e.target.value })}
-                className={`w-full border ${errors.email ? "border-red-500" : "border-gray-300"} rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
+                onChange={(e) =>
+                  setContact({ ...contact, email: e.target.value })
+                }
+                className={`w-full border ${
+                  errors.email ? "border-red-500" : "border-gray-300"
+                } rounded-md px-4 py-3 focus:ring-2 focus:ring-[#1A3970] outline-none`}
               />
-              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+              )}
             </div>
 
             <div className="flex justify-between pt-6">
@@ -124,7 +159,11 @@ const BikeTakafulQuote: React.FC<Props> = ({ formData, selectedQuote, onBack }) 
         <div className="md:w-1/2 flex justify-center items-center">
           <div className="bg-white rounded-lg shadow-md overflow-hidden w-80">
             <div className="bg-white p-5 flex items-center justify-center border-b">
-              <img src={selectedQuote.logo} alt={selectedQuote.company} className="h-12 object-contain" />
+              <img
+                src={selectedQuote.logo}
+                alt={selectedQuote.company}
+                className="h-12 object-contain"
+              />
             </div>
             <div className="bg-[#1894a4] text-white p-5">
               <p className="text-sm mb-1">Bike Takaful</p>
@@ -142,7 +181,9 @@ const BikeTakafulQuote: React.FC<Props> = ({ formData, selectedQuote, onBack }) 
               <div className="border-t border-white/30 pt-3 mb-4">
                 <div className="flex justify-between items-center">
                   <span className="font-semibold">Total:</span>
-                  <span className="text-xl font-bold">{selectedQuote.total}</span>
+                  <span className="text-xl font-bold">
+                    {selectedQuote.total}
+                  </span>
                 </div>
               </div>
               <button className="w-full bg-[#1A3970] text-white py-2 rounded font-semibold hover:bg-[#2A4D8F] mb-2">
