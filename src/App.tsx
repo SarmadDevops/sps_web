@@ -11,7 +11,6 @@ import Contactus from "./pages/Contactus";
 import Pricingplan from "./pages/Pricingplan";
 import TravelTakaful from "./pages/TravelTakaful";
 import CarTakaful from "./pages/CarTakaful";
-
 import Healthtakaful from "./pages/Healthtakaful";
 export default function App() {
   return (
@@ -28,7 +27,6 @@ export default function App() {
         <Route path="/pricingplan" element={<Pricingplan />} />
         <Route path="/travel-takaful" element={<TravelTakaful/>}/>
         <Route path="/car-takaful" element={<CarTakaful />} />
-
         <Route path="/healthtakaful" element={<Healthtakaful />} />
       </Routes>
     </div>
