@@ -27,45 +27,45 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="w-full h-[110px] bg-[#1894a4]">
+    <nav className="w-full sm:h-[110px] bg-[#1894a4]">
       {/* Top Bar */}
-      <div className=" text-white px-4 py-3 ">
-        <div className="max-w-7xl flex flex-wrap items-center justify-between text-sm lg:pl-8">
-          <div className="flex  gap-6">
-            <div className="flex  gap-2">
-              <span className="text-xs">
-                <Mail className="w-5 h-5" />
+      <div className="text-white px-2 sm:px-4 py-2 sm:py-3">
+        <div className="max-w-7xl flex items-center justify-between text-xs sm:text-sm lg:pl-8">
+          <div className="flex-1 flex gap-2 sm:gap-6 min-w-0">
+            <div className="flex items-center gap-1 sm:gap-2 min-w-0">
+              <Mail className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 flex-shrink-0" />
+              <span className="truncate">
+                Email Us: contact@securepathsolution.com
               </span>
-              <span>Email Us: contact@securepathsolution.com</span>
             </div>
-            <div className="hidden md:flex items-center gap-2">
-              <span className="text-xs">
-                <Clock className="w-5 h-5" />
+            <div className="hidden md:flex items-center gap-1 sm:gap-2">
+              <Clock className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 flex-shrink-0" />
+              <span className="whitespace-nowrap">
+                Working Hours: Monday - Saturday, 09 am - 06 pm
               </span>
-              <span>Working Hours: Monday - Satursday, 09 am - 06 pm</span>
             </div>
           </div>
-          <div className="flex gap-3 ">
+          <div className="flex gap-2 sm:gap-3 flex-shrink-0 ml-2">
             <a
               href="https://www.facebook.com/share/1MDgfmAxRX/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Facebook className="w-4 h-4 cursor-pointer hover:opacity-80" />
+              <Facebook className="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer hover:opacity-80" />
             </a>
             <a
               href="https://www.linkedin.com/company/secure-path-solutions"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Linkedin className="h-4 w-4 cursor-pointer hover:opacity-80" />
+              <Linkedin className="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer hover:opacity-80" />
             </a>
             <a
               href="https://www.instagram.com/securepathsolutions.official/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Instagram className="w-4 h-4 cursor-pointer hover:opacity-80" />
+              <Instagram className="w-3 h-3 sm:w-4 sm:h-4 cursor-pointer hover:opacity-80" />
             </a>
           </div>
         </div>
@@ -137,11 +137,11 @@ const Navbar = () => {
             </div>
 
             {/* Right Side - Contact & Menu */}
-            <Link to="/contactus">
-              <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
+              <Link to="/contactus" className="hidden lg:block">
                 {/* Urgent Call */}
-                <div className="hidden md:flex items-center gap-3 border-l border-r border-gray-300 px-4">
-                  <Phone className="w-5 h-5 text-teal-600" />
+                <div className="flex items-center gap-3 border-l border-r border-gray-300 px-4">
+                  <Phone className="w-4 h-4 lg:w-5 lg:h-5 text-teal-600" />
                   <div className="flex flex-col">
                     <span className="text-xs text-gray-600">Urgent Call</span>
                     <span className="text-sm font-semibold text-gray-800">
@@ -149,9 +149,11 @@ const Navbar = () => {
                     </span>
                   </div>
                 </div>
+              </Link>
 
-                {/* Grid Menu Icon */}
-                <button className="hidden md:block p-2 hover:bg-gray-100 rounded">
+              {/* Grid Menu Icon - Desktop only */}
+              <Link to="/contactus">
+                <button className="hidden lg:block p-2 hover:bg-gray-100 rounded">
                   <div className="grid grid-cols-3 gap-1">
                     {[...Array(9)].map((_, i) => (
                       <div
@@ -161,25 +163,25 @@ const Navbar = () => {
                     ))}
                   </div>
                 </button>
+              </Link>
 
-                {/* Mobile Menu Toggle */}
-                <button
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                  className="md:hidden p-2 hover:bg-gray-100 rounded"
-                >
-                  {mobileMenuOpen ? (
-                    <X className="w-6 h-6" />
-                  ) : (
-                    <Menu className="w-6 h-6" />
-                  )}
-                </button>
-              </div>
-            </Link>
+              {/* Mobile Menu Toggle */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="lg:hidden p-2 hover:bg-gray-100 rounded"
+              >
+                {mobileMenuOpen ? (
+                  <X className="w-5 h-5 sm:w-6 sm:h-6" />
+                ) : (
+                  <Menu className="w-5 h-5 sm:w-6 sm:h-6" />
+                )}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden bg-white border-t border-gray-200 shadow-lg absolute left-0 right-0 z-50">
+            <div className="lg:hidden bg-white border-t border-gray-200 shadow-lg absolute left-0 right-0 z-50 max-h-screen overflow-y-auto">
               <div className="max-w-7xl mx-auto px-4 py-4">
                 {navItems.map((item) => (
                   <div
@@ -188,7 +190,7 @@ const Navbar = () => {
                   >
                     <Link
                       to={item.route}
-                      className="flex items-center justify-between w-full text-gray-800 font-medium hover:text-teal-600 py-2 px-2 hover:bg-gray-50 rounded"
+                      className="flex items-center justify-between w-full text-gray-800 font-medium hover:text-teal-600 py-3 px-2 hover:bg-gray-50 rounded text-sm sm:text-base"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       <span>{item.name}</span>
@@ -197,15 +199,22 @@ const Navbar = () => {
                   </div>
                 ))}
                 <div className="mt-4 pt-4 border-t border-gray-200">
-                  <div className="flex items-center gap-3 px-2">
-                    <Phone className="w-5 h-5 text-teal-600" />
-                    <div className="flex flex-col">
-                      <span className="text-xs text-gray-600">Urgent Call</span>
-                      <span className="text-sm font-semibold text-gray-800">
-                        +296 358 700 88
-                      </span>
+                  <Link
+                    to="/contactus"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    <div className="flex items-center gap-3 px-2 py-3 hover:bg-gray-50 rounded">
+                      <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-teal-600" />
+                      <div className="flex flex-col">
+                        <span className="text-xs text-gray-600">
+                          Urgent Call
+                        </span>
+                        <span className="text-sm font-semibold text-gray-800">
+                          03317495785
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 </div>
               </div>
             </div>
