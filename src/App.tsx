@@ -13,6 +13,7 @@ import TravelTakaful from "./pages/TravelTakaful";
 import CarTakaful from "./pages/CarTakaful";
 import BikeTakaful from "./pages/BikeTakaful";
 import Healthtakaful from "./pages/Healthtakaful";
+import ItConsulting from "./pages/ItConsulting";
 
 export default function App() {
   return (
@@ -30,7 +31,8 @@ export default function App() {
         <Route path="/travel-takaful" element={<TravelTakaful/>}/>
         <Route path="/car-takaful" element={<CarTakaful />} />
         <Route path="/bike-takaful" element={<BikeTakaful />} />
-        <Route path="/healthtakaful" element={<Healthtakaful />} />
+        <Route path="/health-takaful" element={<Healthtakaful />} />
+        <Route path="/it-consulting" element={<ItConsulting />} />
       </Routes>
     </div>
   );
