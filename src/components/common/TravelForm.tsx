@@ -131,11 +131,10 @@ const TravelForm: React.FC = () => {
     setShowCalendar(false);
   };
 
-  // ✅ NEW: Validate form before showing plans
   const handleViewPlans = () => {
     if (validateForm()) {
       setShowPlans(true);
-      setSelectedCard(null); // Reset selected card
+      setSelectedCard(null);
     }
   };
 
@@ -161,228 +160,219 @@ const TravelForm: React.FC = () => {
 
   return (
     <>
-      <div className="flex flex-col md:flex-row max-w-6xl mx-auto mt-10 mb-10 p-6 md:p-8 gap-6 md:gap-10 rounded-lg bg-[#f0f5fa] shadow-sm">
-        {/* Left Section */}
-        <div className="flex-1 flex flex-col items-center justify-center space-y-4">
-          <div className="w-full text-xs text-gray-900 font-semibold flex flex-col sm:flex-row justify-between px-4">
-            <div className="mb-2 sm:mb-0">
-              <p>
-                <strong>Name:</strong> Osama Bin Jahangir
-              </p>
-              <p>
-                <strong>Email:</strong> osamajahangir786@gmail.com
-              </p>
-            </div>
-            <div>
-              <p>
-                <strong>Gender:</strong> Male
-              </p>
-              <p>
-                <strong>Phone:</strong> +923314272709
-              </p>
-            </div>
-          </div>
-
-          <div className="my-6 md:my-10">
-            <img
-              src={globePlane}
-              alt="Globe and airplane"
-              className="w-40 h-40 sm:w-48 sm:h-48 object-contain"
-            />
-          </div>
-
-          <div className="text-center px-4">
-            <h2 className="text-blue-900 font-semibold text-base sm:text-lg leading-snug">
-              Buy Personal Accident Insurance Plan <br /> for as low as Rs.
-              190/year
-            </h2>
-            <p className="text-gray-800 text-xs sm:text-sm mt-1">
-              Accidental Death Coverage up to Rs. 15 Lakh. Buy online in 10
-              minutes
-            </p>
-          </div>
-        </div>
-
-        {/* Right Section */}
-        <div className="flex-1 bg-white rounded-lg shadow p-6 md:p-8 flex flex-col justify-center">
-          <h3 className="text-center font-semibold text-gray-900 mb-5 text-sm sm:text-base">
-            Travel insurance at best rate
-          </h3>
-
-          <div className="space-y-3 mb-5">
-            {/* Country */}
-            <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                Country
-              </label>
-              <select
-                name="country"
-                value={formData.country}
-                onChange={handleInputChange}
-                className={`w-full rounded-md border py-2 px-3 appearance-none cursor-pointer text-sm ${
-                  formData.country === "" ? "text-gray-400" : "text-gray-900"
-                } ${errors.country ? "border-red-500" : "border-gray-300"}`}
-              >
-                {countries.map(({ value, label }) => (
-                  <option key={value} value={value}>
-                    {label}
-                  </option>
-                ))}
-              </select>
-              {errors.country && (
-                <p className="text-red-500 text-xs mt-1">{errors.country}</p>
-              )}
+      <div className="max-w-7xl mx-auto px-12 py-8">
+        <div className="flex flex-col md:flex-row mt-10 mb-10 p-6 md:p-8 gap-6 md:gap-10 rounded-lg bg-[#f0f5fa] shadow-sm">
+          {/* Left Section */}
+          <div className="flex-1 flex flex-col items-center justify-center space-y-4">
+            <div className="w-full text-xs text-gray-900 font-semibold flex flex-col sm:flex-row justify-between">
+              <div className="mb-2 sm:mb-0">
+                <p><strong>Name:</strong> Osama Bin Jahangir</p>
+                <p><strong>Email:</strong> osamajahangir786@gmail.com</p>
+              </div>
+              <div>
+                <p><strong>Gender:</strong> Male</p>
+                <p><strong>Phone:</strong> +923314272709</p>
+              </div>
             </div>
 
-            {/* Trip Date */}
-            <div className="relative">
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                Trip Date
-              </label>
-              <input
-                type="text"
-                readOnly
-                value={formData.tripDate}
-                onClick={() => setShowCalendar(!showCalendar)}
-                className={`w-full rounded-md border py-2 px-3 cursor-pointer text-sm ${
-                  errors.tripDate ? "border-red-500" : "border-gray-300"
-                } ${formData.tripDate ? "text-gray-900" : "text-gray-400"}`}
-                placeholder="Select trip date"
-              />
-              {showCalendar && (
-                <div className="absolute top-full left-0 mt-2 bg-white border rounded-lg shadow-lg z-10 p-4 w-72">
-                  <div className="flex items-center justify-between mb-4">
-                    <button
-                      onClick={() =>
-                        setCurrentMonth(
-                          new Date(
-                            currentMonth.getFullYear(),
-                            currentMonth.getMonth() - 1,
-                            1
-                          )
-                        )
-                      }
-                      className="p-1 hover:bg-gray-100 rounded"
-                    >
-                      <ChevronLeft className="w-5 h-5" />
-                    </button>
-                    <h3 className="font-semibold text-center text-sm">
-                      {currentMonth.toLocaleDateString("en-US", {
-                        month: "long",
-                        year: "numeric",
-                      })}
-                    </h3>
-                    <button
-                      onClick={() =>
-                        setCurrentMonth(
-                          new Date(
-                            currentMonth.getFullYear(),
-                            currentMonth.getMonth() + 1,
-                            1
-                          )
-                        )
-                      }
-                      className="p-1 hover:bg-gray-100 rounded"
-                    >
-                      <ChevronRight className="w-5 h-5" />
-                    </button>
-                  </div>
-
-                  <div className="grid grid-cols-7 gap-1 mb-2 text-center text-xs font-medium text-gray-500">
-                    {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((d) => (
-                      <div key={d}>{d}</div>
-                    ))}
-                  </div>
-
-                  <div className="grid grid-cols-7 gap-1 text-center text-sm">
-                    {getDaysInMonth(currentMonth).map((date) => {
-                      const isCurrentMonth =
-                        date.getMonth() === currentMonth.getMonth();
-                      const isToday =
-                        date.toDateString() === new Date().toDateString();
-                      const isSelected =
-                        formData.tripDate === date.toISOString().split("T")[0];
-
-                      return (
-                        <div
-                          key={date.toString()}
-                          onClick={() => handleDateClick(date)}
-                          className={`cursor-pointer p-2 rounded ${
-                            !isCurrentMonth ? "text-gray-300" : "text-gray-900"
-                          } ${isToday ? "bg-blue-100" : ""} ${
-                            isSelected ? "bg-blue-500 text-white" : ""
-                          } hover:bg-blue-200`}
-                        >
-                          {date.getDate()}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
-              {errors.tripDate && (
-                <p className="text-red-500 text-xs mt-1">{errors.tripDate}</p>
-              )}
-            </div>
-
-            {/* Passengers */}
-            <div>
-              <label className="block text-xs font-semibold text-gray-700 mb-1.5">
-                Passengers
-              </label>
-              <select
-                name="passengers"
-                value={formData.passengers}
-                onChange={handleInputChange}
-                className={`w-full rounded-md border py-2 px-3 appearance-none cursor-pointer text-sm ${
-                  formData.passengers === "" ? "text-gray-400" : "text-gray-900"
-                } ${errors.passengers ? "border-red-500" : "border-gray-300"}`}
-              >
-                {passengers.map(({ value, label }) => (
-                  <option key={value} value={value}>
-                    {label}
-                  </option>
-                ))}
-              </select>
-              {errors.passengers && (
-                <p className="text-red-500 text-xs mt-1">{errors.passengers}</p>
-              )}
-            </div>
-          </div>
-
-          {/* Travel Takaful Toggle */}
-          <div
-            className="flex items-center justify-between bg-[#C7F1F8] rounded-md py-3 px-4 cursor-pointer mb-4 shadow-sm hover:bg-[#b8ebf3] transition"
-            onClick={() => setExpandedTravelTakaful(!expandedTravelTakaful)}
-          >
-            <div className="flex items-center space-x-3">
+            <div className="my-6 md:my-10">
               <img
-                src={globePlaneIcon}
-                alt="Travel Takaful Globe"
-                className="h-6 w-6 sm:h-7 sm:w-7 object-contain"
+                src={globePlane}
+                alt="Globe and airplane"
+                className="w-40 h-40 sm:w-48 sm:h-48 object-contain"
               />
-              <span className="font-semibold text-gray-900 text-sm sm:text-[14px]">
-                Travel Takaful
+            </div>
+
+            <div className="text-center">
+              <h2 className="text-blue-900 font-semibold text-base sm:text-lg leading-snug">
+                Buy Personal Accident Insurance Plan <br /> for as low as Rs. 190/year
+              </h2>
+              <p className="text-gray-800 text-xs sm:text-sm mt-1">
+                Accidental Death Coverage up to Rs. 15 Lakh. Buy online in 10 minutes
+              </p>
+            </div>
+          </div>
+
+          {/* Right Section */}
+          <div className="flex-1 bg-white rounded-lg shadow p-6 md:p-8 flex flex-col justify-center">
+            <h3 className="text-center font-semibold text-gray-900 mb-5 text-sm sm:text-base">
+              Travel insurance at best rate
+            </h3>
+
+            <div className="space-y-3 mb-5">
+              {/* Country */}
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                  Country
+                </label>
+                <select
+                  name="country"
+                  value={formData.country}
+                  onChange={handleInputChange}
+                  className={`w-full rounded-md border py-2 px-3 appearance-none cursor-pointer text-sm ${
+                    formData.country === "" ? "text-gray-400" : "text-gray-900"
+                  } ${errors.country ? "border-red-500" : "border-gray-300"}`}
+                >
+                  {countries.map(({ value, label }) => (
+                    <option key={value} value={value}>
+                      {label}
+                    </option>
+                  ))}
+                </select>
+                {errors.country && (
+                  <p className="text-red-500 text-xs mt-1">{errors.country}</p>
+                )}
+              </div>
+
+              {/* Trip Date */}
+              <div className="relative">
+                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                  Trip Date
+                </label>
+                <input
+                  type="text"
+                  readOnly
+                  value={formData.tripDate}
+                  onClick={() => setShowCalendar(!showCalendar)}
+                  className={`w-full rounded-md border py-2 px-3 cursor-pointer text-sm ${
+                    errors.tripDate ? "border-red-500" : "border-gray-300"
+                  } ${formData.tripDate ? "text-gray-900" : "text-gray-400"}`}
+                  placeholder="Select trip date"
+                />
+                {showCalendar && (
+                  <div className="absolute top-full left-0 mt-2 bg-white border rounded-lg shadow-lg z-10 p-4 w-72">
+                    <div className="flex items-center justify-between mb-4">
+                      <button
+                        onClick={() =>
+                          setCurrentMonth(
+                            new Date(
+                              currentMonth.getFullYear(),
+                              currentMonth.getMonth() - 1,
+                              1
+                            )
+                          )
+                        }
+                        className="p-1 hover:bg-gray-100 rounded"
+                      >
+                        <ChevronLeft className="w-5 h-5" />
+                      </button>
+                      <h3 className="font-semibold text-center text-sm">
+                        {currentMonth.toLocaleDateString("en-US", {
+                          month: "long",
+                          year: "numeric",
+                        })}
+                      </h3>
+                      <button
+                        onClick={() =>
+                          setCurrentMonth(
+                            new Date(
+                              currentMonth.getFullYear(),
+                              currentMonth.getMonth() + 1,
+                              1
+                            )
+                          )
+                        }
+                        className="p-1 hover:bg-gray-100 rounded"
+                      >
+                        <ChevronRight className="w-5 h-5" />
+                      </button>
+                    </div>
+
+                    <div className="grid grid-cols-7 gap-1 mb-2 text-center text-xs font-medium text-gray-500">
+                      {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map((d) => (
+                        <div key={d}>{d}</div>
+                      ))}
+                    </div>
+
+                    <div className="grid grid-cols-7 gap-1 text-center text-sm">
+                      {getDaysInMonth(currentMonth).map((date) => {
+                        const isCurrentMonth =
+                          date.getMonth() === currentMonth.getMonth();
+                        const isToday =
+                          date.toDateString() === new Date().toDateString();
+                        const isSelected =
+                          formData.tripDate === date.toISOString().split("T")[0];
+
+                        return (
+                          <div
+                            key={date.toString()}
+                            onClick={() => handleDateClick(date)}
+                            className={`cursor-pointer p-2 rounded ${
+                              !isCurrentMonth ? "text-gray-300" : "text-gray-900"
+                            } ${isToday ? "bg-blue-100" : ""} ${
+                              isSelected ? "bg-blue-500 text-white" : ""
+                            } hover:bg-blue-200`}
+                          >
+                            {date.getDate()}
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                )}
+                {errors.tripDate && (
+                  <p className="text-red-500 text-xs mt-1">{errors.tripDate}</p>
+                )}
+              </div>
+
+              {/* Passengers */}
+              <div>
+                <label className="block text-xs font-semibold text-gray-700 mb-1.5">
+                  Passengers
+                </label>
+                <select
+                  name="passengers"
+                  value={formData.passengers}
+                  onChange={handleInputChange}
+                  className={`w-full rounded-md border py-2 px-3 appearance-none cursor-pointer text-sm ${
+                    formData.passengers === "" ? "text-gray-400" : "text-gray-900"
+                  } ${errors.passengers ? "border-red-500" : "border-gray-300"}`}
+                >
+                  {passengers.map(({ value, label }) => (
+                    <option key={value} value={value}>
+                      {label}
+                    </option>
+                  ))}
+                </select>
+                {errors.passengers && (
+                  <p className="text-red-500 text-xs mt-1">{errors.passengers}</p>
+                )}
+              </div>
+            </div>
+
+            {/* Travel Takaful Toggle */}
+            <div
+              className="flex items-center justify-between bg-[#C7F1F8] rounded-md py-3 px-12 cursor-pointer mb-4 shadow-sm hover:bg-[#b8ebf3] transition"
+              onClick={() => setExpandedTravelTakaful(!expandedTravelTakaful)}
+            >
+              <div className="flex items-center space-x-3">
+                <img
+                  src={globePlaneIcon}
+                  alt="Travel Takaful Globe"
+                  className="h-6 w-6 sm:h-7 sm:w-7 object-contain"
+                />
+                <span className="font-semibold text-gray-900 text-sm sm:text-[14px]">
+                  Travel Takaful
+                </span>
+              </div>
+              <span className="text-lg sm:text-[20px] font-bold text-gray-700">
+                {expandedTravelTakaful ? "▲" : "▼"}
               </span>
             </div>
-            <span className="text-lg sm:text-[20px] font-bold text-gray-700">
-              {expandedTravelTakaful ? "▲" : "▼"}
-            </span>
-          </div>
 
-          {/* ✅ View Plans Button - Now validates form first */}
-          <button
-            onClick={handleViewPlans}
-            className="bg-[#F59E0B] hover:bg-[#ea9300] text-white font-semibold py-3 rounded-lg shadow text-sm sm:text-[14px] transition"
-          >
-            View Plans →
-          </button>
+            <button
+              onClick={handleViewPlans}
+              className="bg-[#F59E0B] hover:bg-[#ea9300] text-white font-semibold py-3 rounded-lg shadow text-sm sm:text-[14px] transition"
+            >
+              View Plans
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* ✅ Insurance Cards - Only show after form validation */}
+      {/* Insurance Cards Section */}
       {showPlans && (
-        <div className="max-w-6xl mx-auto mt-12 px-6 md:px-8 mb-12">
+        <div className="max-w-7xl mx-auto px-12 mt-12 mb-12">
           <h2 className="text-xl font-semibold text-gray-800 mb-6 text-center">
             Select Plan
           </h2>
@@ -439,7 +429,7 @@ const TravelForm: React.FC = () => {
             <button
               disabled={!selectedCard}
               onClick={handleConfirm}
-              className={`px-10 py-3 rounded-md font-semibold transition ${
+              className={`px-12 py-3 rounded-md font-semibold transition ${
                 selectedCard
                   ? "bg-[#1A3970] text-white hover:bg-[#2A4D8F]"
                   : "bg-gray-300 text-gray-500 cursor-not-allowed"
