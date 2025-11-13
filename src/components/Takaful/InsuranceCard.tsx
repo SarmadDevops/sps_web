@@ -1,4 +1,3 @@
-// src/components/InsuranceCard.tsx
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { ArrowRight, AlertCircle } from "lucide-react";
@@ -145,8 +144,9 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
   };
 
   return (
-    <div className="w-full max-w-5xl mx-auto px-4">
-      <div className="flex flex-col md:flex-row justify-between bg-[aliceblue] shadow-md rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 my-8 overflow-hidden">
+    // NEW: Outer container with px-8 to match Navbar
+    <div className="max-w-7xl mx-auto px-8 py-8">
+      <div className="flex flex-col md:flex-row justify-between bg-[aliceblue] shadow-md rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
         {/* Left Section */}
         <div className="flex-1 min-w-0 space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-sm text-gray-700">
@@ -227,7 +227,7 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                               name="city"
                               value={healthFormData.city || ""}
                               onChange={handleHealthInputChange}
-                              className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm transition-all ${
+                              className={`w-full px-8 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm transition-all ${
                                 errors.city ? "border-red-500 ring-2 ring-red-200" : "border-gray-300"
                               }`}
                               required
@@ -250,7 +250,7 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                               name="employeeCount"
                               value={healthFormData.employeeCount || ""}
                               onChange={handleHealthInputChange}
-                              className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm transition-all ${
+                              className={`w-full px-8 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm transition-all ${
                                 errors.employeeCount ? "border-red-500 ring-2 ring-red-200" : "border-gray-300"
                               }`}
                               required
@@ -274,7 +274,7 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                             name={field.name}
                             value={healthFormData[field.name] || ""}
                             onChange={handleHealthInputChange}
-                            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm transition-all ${
+                            className={`w-full px-8 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm transition-all ${
                               errors[field.name] ? "border-red-500 ring-2 ring-red-200" : "border-gray-300"
                             }`}
                             required={field.required}
@@ -299,7 +299,7 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                             value={healthFormData[field.name] || ""}
                             onChange={handleHealthInputChange}
                             placeholder={field.placeholder}
-                            className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm transition-all ${
+                            className={`w-full px-8 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm transition-all ${
                               errors[field.name] ? "border-red-500 ring-2 ring-red-200" : "border-gray-300"
                             }`}
                             required={field.required}
@@ -317,7 +317,7 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                 })}
 
                 <div className="grid grid-cols-2 gap-2">
-                  <select className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm">
+                  <select className="w-full px-8 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm">
                     <option value="+92">+92</option>
                   </select>
                   <div className="space-y-1">
@@ -327,7 +327,7 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                       value={healthFormData.phoneNumber || ""}
                       onChange={handleHealthInputChange}
                       placeholder="3001234567"
-                      className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm transition-all ${
+                      className={`w-full px-8 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm transition-all ${
                         errors.phoneNumber ? "border-red-500 ring-2 ring-red-200" : "border-gray-300"
                       }`}
                     />
@@ -340,7 +340,6 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                   </div>
                 </div>
 
-                {/* Button Always Enabled */}
                 <button
                   type="submit"
                   className="w-full py-2.5 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 text-sm mt-4 bg-[#FF8C00] hover:bg-[#FF7700] text-white shadow-md"
@@ -362,7 +361,7 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                           name={field.name}
                           value={fireFormData[field.name] || ""}
                           onChange={handleFireInputChange}
-                          className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm transition-all ${
+                          className={`w-full px-8 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm transition-all ${
                             errors[field.name] ? "border-red-500 ring-2 ring-red-200" : "border-gray-300"
                           }`}
                           required={field.required}
@@ -387,7 +386,7 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                           value={fireFormData[field.name] || ""}
                           onChange={handleFireInputChange}
                           placeholder={field.placeholder}
-                          className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm transition-all ${
+                          className={`w-full px-8 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1894a4] text-sm transition-all ${
                             errors[field.name] ? "border-red-500 ring-2 ring-red-200" : "border-gray-300"
                           }`}
                           required={field.required}
@@ -403,7 +402,6 @@ const InsuranceCard = ({ showForm = false }: InsuranceCardProps) => {
                   </div>
                 ))}
 
-                {/* Button Always Enabled */}
                 <button
                   type="submit"
                   className="w-full py-2.5 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 text-sm mt-4 bg-red-600 hover:bg-red-700 text-white shadow-md"
