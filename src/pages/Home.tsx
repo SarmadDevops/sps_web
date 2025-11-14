@@ -1,3 +1,4 @@
+import FadeUp from "../components/common/FadeUp"; 
 import HeroSection from "../components/common/Hero";
 import Navbar from "../components/common/Navbar";
 import ServicesSection1 from "../components/Home/ServiceSection1";
@@ -11,23 +12,59 @@ import BrandsSection from "../components/Home/Brandsection";
 import TestimonialsSection from "../components/common/Testinomialsection";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
+
 const Home = () => {
   return (
     <div>
       <Navbar />
-      <HeroSection />
-      <ServicesSection1 />
-      <AboutUsSection1 />
-      <ServicesSection2 />
-      <WhyUsSection />
-      <Bestplan />
-      <TeamSection />
-      <WhyUsSection2 />
-      <BrandsSection />
-      <TestimonialsSection />
-      <FAQSection />
+
+      <FadeUp>
+        <HeroSection />
+      </FadeUp>
+
+      <FadeUp >
+        <ServicesSection1 />
+      </FadeUp>
+
+      <FadeUp >
+        <AboutUsSection1 />
+      </FadeUp>
+
+      <FadeUp >
+        <ServicesSection2 />
+      </FadeUp>
+
+      <FadeUp >
+        <WhyUsSection />
+      </FadeUp>
+
+      <FadeUp>
+        <Bestplan />
+      </FadeUp>
+
+      <FadeUp >
+        <TeamSection />
+      </FadeUp>
+
+      <FadeUp >
+        <WhyUsSection2 />
+      </FadeUp>
+
+      <FadeUp >
+        <BrandsSection />
+      </FadeUp>
+
+      <FadeUp >
+        <TestimonialsSection />
+      </FadeUp>
+
+      <FadeUp >
+        <FAQSection />
+      </FadeUp>
+
       <Footer />
     </div>
   );
 };
+
 export default Home;

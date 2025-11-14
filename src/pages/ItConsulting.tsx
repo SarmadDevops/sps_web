@@ -1,23 +1,20 @@
-import FadeUp from "../components/common/FadeUp";
 import Navbar from "../components/common/Navbar";
-import Footer from "../components/common/Footer";
-import InsuranceCard from "../components/Takaful/InsuranceCard";
-import HeroSection from "../components/common/Hero";
 import FAQSection from "../components/common/FAQsection";
+import Footer from "../components/common/Footer";
+import HeroSection from "../components/common/Hero";
+import ITConsultingCard from "../components/ItConsulting/ItConsultingCard";
+import FadeUp from "../components/common/FadeUp";
 
-
-const FireTakaful = () => {
+const ItConsulting = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div>
       <Navbar />
       <FadeUp>
        <HeroSection
         backgroundImage="/Kafalaheroimage.png"
         title={
           <>
-            Takaful Insurance
-            <br />
-            Form
+            IT Consulting
           </>
         }
         isKafalaPage={true}
@@ -26,7 +23,7 @@ const FireTakaful = () => {
       />
       </FadeUp>
       <FadeUp>
-      <InsuranceCard showForm={true} />
+      <ITConsultingCard/>
       </FadeUp>
       <FadeUp>
       <FAQSection />
@@ -36,4 +33,4 @@ const FireTakaful = () => {
   );
 };
 
-export default FireTakaful;
+export default ItConsulting;

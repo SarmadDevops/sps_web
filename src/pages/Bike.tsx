@@ -1,3 +1,4 @@
+import FadeUp from "../components/common/FadeUp";
 import Navbar from "../components/common/Navbar";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
@@ -7,10 +8,12 @@ import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
 import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import { bikeFormFields } from "../config/formFields";
 
+
 const Bike = () => {
   return (
     <div>
       <Navbar />
+      <FadeUp>
       <HeroSection
         backgroundImage="/Bikeinsurancepolicyimage.jpg"
         title={
@@ -24,6 +27,8 @@ const Bike = () => {
         height="h-[400px] md:h-[450px] lg:h-[500px]"
         titleSize="text-4xl md:text-5xl"
       />
+      </FadeUp>
+      <FadeUp>
       <VehicleInfoHeader
         vehicleType="bike"
         title={
@@ -36,13 +41,20 @@ const Bike = () => {
         subtitle="Compare & find coverage for your bike from top insurance providers in Pakistan."
         vehicleImage="/Bikeimage.png"
       />
+      </FadeUp>
+      <FadeUp>
       <VehicleInsuranceForm
         vehicleType="bike"
         formFields={bikeFormFields}
         apiEndpoint="/api/bike-insurance-quotes"
       />
+      </FadeUp>
+      <FadeUp>
       <InsuranceDetailsSection />
+      </FadeUp>
+      <FadeUp>
       <FAQSection />
+      </FadeUp>
       <Footer />
     </div>
   );
