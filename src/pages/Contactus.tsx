@@ -1,3 +1,4 @@
+import FadeUp from "../components/common/FadeUp";
 import HeroSection from "../components/common/Hero";
 import Navbar from "../components/common/Navbar";
 import ContactUsSection from "../components/contact/Contactussection";
@@ -10,6 +11,7 @@ const Contactus = () => {
   return (
     <>
       <Navbar />
+      <FadeUp>
       <HeroSection
         backgroundImage="/Heroimage2.png"
         title={<>Contact Us</>}
@@ -17,10 +19,19 @@ const Contactus = () => {
         height="h-[400px] md:h-[450px] lg:h-[500px]"
         titleSize="text-4xl md:text-5xl"
       />
+      </FadeUp>
+      <FadeUp>
       <ContactUsSection />
+      </FadeUp>
+      <FadeUp>
       <WhyUsSection />
+      </FadeUp>
+      <FadeUp>
       <TeamSection />
+      </FadeUp>
+      <FadeUp>
       <FAQSection />
+      </FadeUp>
       <Footer />
     </>
   );

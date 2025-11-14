@@ -7,11 +7,13 @@ import WhyUsSection from "../components/common/Whyussection";
 import TeamSection from "../components/common/Teammembers";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
+import FadeUp from "../components/common/FadeUp";
 
 const Pricingplan = () => {
   return (
     <>
       <Navbar />
+      <FadeUp>
       <HeroSection
         backgroundImage="/Heroimage2.png"
         title={<>Pricing Plan</>}
@@ -19,9 +21,16 @@ const Pricingplan = () => {
         height="h-[400px] md:h-[450px] lg:h-[500px]"
         titleSize="text-4xl md:text-5xl"
       />
+      </FadeUp>
+      <FadeUp>
       <Bestplan />
+      </FadeUp>
+      <FadeUp>
       <AboutUsSection1 />
+      </FadeUp>
+      <FadeUp>
       <WhyUsSection />
+      </FadeUp>
       <TeamSection />
       <FAQSection />
       <Footer />

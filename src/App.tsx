@@ -14,10 +14,11 @@ import CarTakaful from "./pages/CarTakaful";
 import BikeTakaful from "./pages/BikeTakaful";
 import Healthtakaful from "./pages/Healthtakaful";
 import ItConsulting from "./pages/ItConsulting";
-
+import ScrollToTop from "./components/scrollToTop";
 export default function App() {
   return (
     <div className="overflow-x-hidden">
+       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/car" element={<Car />} />

@@ -9,7 +9,7 @@ import BikeTakafulForm from "../components/Takaful/BikeTakaful/BikeTakafulForm";
 const BikeTakaful = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar />  
       <HeroSection
         backgroundImage="/Bikeinsurancepolicyimage.jpg"
         title={

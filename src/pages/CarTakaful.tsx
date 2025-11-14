@@ -1,3 +1,4 @@
+
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 import HeroSection from "../components/common/Hero";

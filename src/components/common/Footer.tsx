@@ -1,21 +1,15 @@
 import React from "react";
-import {
-  Facebook,
-  Linkedin,
-  Instagram,
-  MapPin,
-  ChevronRight,
-} from "lucide-react";
+import { Facebook, Linkedin, Instagram, MapPin, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   const services = [
-    "Business Consulting",
-    "Financial Investment",
-    "Corporate Business",
-    "IT Consulting",
-    "Web Strategy",
-    "Business Development",
+    { name: "Car Insurance", route: "/car" },
+    { name: "Health Insurance", route: "/health" },
+    { name: "Bike Insurance", route: "/bike" },
+    { name: "Travel Insurance", route: "/travel" },
+    { name: "IT Consulting", route: "/it-consulting" },
+    { name: "Takaful", route: "/takaful" },
   ];
 
   const footerLinks = [
@@ -32,14 +26,14 @@ const Footer = () => {
     <footer className="w-full">
       {/* Top CTA Section */}
       <div className="bg-[#1894a4] py-10">
-        <div className="max-w-7xl mx-auto px-12"> 
+        <div className="max-w-7xl mx-auto px-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <h3 className="text-2xl md:text-4xl font-bold text-white">
               Get Free Consultations! We're
               <span className="block">Ready to Work Together</span>
             </h3>
             <button className="bg-white text-[#1894a4] px-6 py-3 rounded font-semibold hover:bg-gray-100 transition-colors whitespace-nowrap">
-               Get Free Consultations ≫
+              Get Free Consultations ≫
             </button>
           </div>
         </div>
@@ -71,7 +65,7 @@ const Footer = () => {
 
       {/* Main Footer Content */}
       <div className="bg-[#0f0f0f] py-12">
-        <div className="max-w-7xl mx-auto px-12"> 
+        <div className="max-w-7xl mx-auto px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* About Company Column */}
             <div>
@@ -119,13 +113,13 @@ const Footer = () => {
               <ul className="space-y-2">
                 {services.map((service, index) => (
                   <li key={index}>
-                    <a
-                      href="#"
+                    <Link
+                      to={service.route}
                       className="text-gray-400 text-sm hover:text-[#1894a4] transition-colors flex items-center gap-2"
                     >
                       <ChevronRight className="w-4 h-4" />
-                      {service}
-                    </a>
+                      {service.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -189,7 +183,7 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="bg-[#0f0f0f] py-4">
-        <div className="max-w-7xl mx-auto px-12"> 
+        <div className="max-w-7xl mx-auto px-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Footer Links */}
             <div className="flex flex-wrap items-center gap-4 text-gray-500 text-sm">
