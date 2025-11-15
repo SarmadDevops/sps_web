@@ -31,7 +31,7 @@ export default function TeamSection() {
       {/* Background */}
       <div className="absolute inset-0 bg-gray-100"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-12"> 
+      <div className="relative z-10 max-w-7xl mx-auto px-8"> 
         {/* Section Header */}
         <div className="text-center mb-12">
           <p className="text-gray-700 text-sm md:text-base font-semibold mb-2">

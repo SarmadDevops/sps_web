@@ -89,7 +89,7 @@ const WhyUsSection = () => {
 
   return (
     <section ref={sectionRef} className="w-full bg-[#E3EFF0] py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-12">
+      <div className="max-w-7xl mx-auto px-8">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
           {/* Left Side - Content */}
           <div>

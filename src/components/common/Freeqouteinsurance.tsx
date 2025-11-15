@@ -71,7 +71,7 @@ const Freeqouteinsurance: React.FC<FreeQuoteProps> = ({
                   value={formData.fullName}
                   onChange={handleInputChange}
                   placeholder="Your Full Name"
-                  className="w-full px-4 py-3 border border-gray-300 rounded bg-white focus:outline-none focus:border-[#1894a4] pr-10"
+                  className="w-full px-8 py-3 border border-gray-300 rounded bg-white focus:outline-none focus:border-[#1894a4] pr-10"
                 />
                 <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
                   <svg
@@ -99,7 +99,7 @@ const Freeqouteinsurance: React.FC<FreeQuoteProps> = ({
                   name="phoneNumber"
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded bg-white focus:outline-none focus:border-[#1894a4] appearance-none pr-10"
+                  className="w-full px-8 py-3 border border-gray-300 rounded bg-white focus:outline-none focus:border-[#1894a4] appearance-none pr-10"
                 >
                   <option value="">Your Phone Number</option>
                   <option value="+92">+92 (Pakistan)</option>
@@ -120,7 +120,7 @@ const Freeqouteinsurance: React.FC<FreeQuoteProps> = ({
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded bg-white focus:outline-none focus:border-[#1894a4] appearance-none pr-10"
+                  className="w-full px-8 py-3 border border-gray-300 rounded bg-white focus:outline-none focus:border-[#1894a4] appearance-none pr-10"
                 >
                   <option value="">Your Email</option>
                   <option value="gmail">Gmail</option>
@@ -137,7 +137,7 @@ const Freeqouteinsurance: React.FC<FreeQuoteProps> = ({
               <button
                 type="button"
                 onClick={handlePreviousStep}
-                className="flex items-center gap-2 px-6 py-3 border border-gray-300 rounded font-medium text-gray-700 hover:bg-gray-50 transition-colors"
+                className="flex items-center gap-2 px-8 py-3 border border-gray-300 rounded font-medium text-gray-700 hover:bg-gray-50 transition-colors"
               >
                 <svg
                   className="w-4 h-4"

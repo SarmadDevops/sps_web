@@ -57,7 +57,7 @@ const InsuranceDetailsSection = () => {
 
   return (
     <section className="w-full bg-white py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-12"> 
+      <div className="max-w-7xl mx-auto px-8"> 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Left Sidebar */}
           <div className="lg:col-span-3">
@@ -113,7 +113,7 @@ const InsuranceDetailsSection = () => {
                 className="w-full h-full object-cover"
               />
 
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-b from-[#0CE0FF] to-[#015fc9] text-white text-center py-4 px-4">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-b from-[#0CE0FF] to-[#015fc9] text-white text-center py-4 px-8">
                 <h3 className="text-lg font-bold mb-1">Hope for the Best,</h3>
                 <p className="text-base font-semibold">Prepare for the Worst</p>
               </div>

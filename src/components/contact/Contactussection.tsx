@@ -31,6 +31,7 @@ export default function ContactUsSection() {
   return (
     <section className="w-full relative py-16 md:py-20 overflow-hidden bg-gradient-to-b from-gray-100 to-gray-200">
       <div className="relative z-10 max-w-7xl mx-auto px-4">
+        
         {/* Header */}
         <div className="text-center mb-12">
           <p className="text-gray-600 text-sm md:text-base font-semibold mb-3">
@@ -45,7 +46,8 @@ export default function ContactUsSection() {
         {/* Contact Form */}
         <div className="max-w-4xl mx-auto mb-12">
           <div className="bg-white rounded-lg shadow-xl p-8 md:p-10">
-            {/* Top Row - 3 inputs */}
+            
+            {/* Top Inputs */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
               <input
                 type="text"
@@ -53,7 +55,7 @@ export default function ContactUsSection() {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#1894a4] transition-colors text-gray-700 placeholder-gray-400"
+                className="w-full py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#1894a4] transition-colors text-gray-700 placeholder-gray-400 px-4"
               />
               <input
                 type="email"
@@ -61,7 +63,7 @@ export default function ContactUsSection() {
                 placeholder="Email Address"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#1894a4] transition-colors text-gray-700 placeholder-gray-400"
+                className="w-full py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#1894a4] transition-colors text-gray-700 placeholder-gray-400 px-4"
               />
               <input
                 type="text"
@@ -69,11 +71,11 @@ export default function ContactUsSection() {
                 placeholder="Subject (Optional)"
                 value={formData.subject}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#1894a4] transition-colors text-gray-700 placeholder-gray-400"
+                className="w-full py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#1894a4] transition-colors text-gray-700 placeholder-gray-400 px-4"
               />
             </div>
 
-            {/* Message Textarea */}
+            {/* Message */}
             <div className="mb-6">
               <textarea
                 name="message"
@@ -81,11 +83,11 @@ export default function ContactUsSection() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={6}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#1894a4] transition-colors text-gray-700 placeholder-gray-400 resize-none"
+                className="w-full py-3 border border-gray-200 rounded-lg focus:outline-none focus:border-[#1894a4] transition-colors text-gray-700 placeholder-gray-400 resize-none px-4"
               />
             </div>
 
-            {/* Submit Button */}
+            {/* Submit */}
             <div className="text-center">
               <button
                 onClick={handleSubmit}
@@ -98,10 +100,11 @@ export default function ContactUsSection() {
         </div>
 
         {/* Office Info Card */}
-        <div className="max-w-6xl mx-auto mb-8">
-          <div className="bg-[#1A3970] rounded-lg shadow-xl p-8 md:p-10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-white">
-              {/* Left Side - Address */}
+        <div className="max-w-7xl mx-auto px-4 mb-8">
+          <div className="bg-[#1A3970] rounded-lg shadow-xl p-8 md:p-10 text-white">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              
+              {/* Left */}
               <div>
                 <h3 className="text-2xl font-bold mb-4">
                   <span className="font-normal">Lahore,</span> Pakistan
@@ -109,35 +112,27 @@ export default function ContactUsSection() {
                 <p className="text-gray-300 text-sm mb-6">
                   Wahdat Road, Muslim Town, Lahore, Pakistan
                 </p>
-                <div className="mb-4">
-                  <p className="text-gray-300 text-sm">Email: info@finco.com</p>
-                </div>
+                <p className="text-gray-300 text-sm mb-4">Email: info@finco.com</p>
                 <div className="w-16 h-1 bg-white"></div>
               </div>
 
-              {/* Right Side - Contact Details */}
+              {/* Right */}
               <div className="space-y-6">
-                {/* Call Directly */}
                 <div>
                   <h4 className="text-sm font-semibold text-gray-300 mb-2">
                     CALL DIRECTLY:
                   </h4>
                   <p className="text-2xl font-bold">+1 212-226-3126</p>
                 </div>
-
-                {/* Brand Office */}
                 <div>
                   <h4 className="text-sm font-semibold text-gray-300 mb-2">
                     Brand Office:
                   </h4>
                   <p className="text-sm text-gray-300">
-                    Allention 69 | Atlanta, GA | Chicago, IL | Dallas, TX
-                    <br />
+                    Allention 69 | Atlanta, GA | Chicago, IL | Dallas, TX <br />
                     Miami, FL | Houston, TX
                   </p>
                 </div>
-
-                {/* Work Hours */}
                 <div>
                   <h4 className="text-sm font-semibold text-gray-300 mb-2">
                     Work Hours:
@@ -147,12 +142,13 @@ export default function ContactUsSection() {
                   </p>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
 
         {/* Map */}
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="rounded-lg overflow-hidden shadow-xl h-[450px]">
             <iframe
               src="https://maps.google.com/maps?q=31.520362854003906,74.32260131835938&z=17&output=embed"
@@ -166,6 +162,7 @@ export default function ContactUsSection() {
             ></iframe>
           </div>
         </div>
+
       </div>
     </section>
   );
