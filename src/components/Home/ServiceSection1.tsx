@@ -65,7 +65,7 @@ const ServicesSection: React.FC = () => {
 
   return (
     <section className="w-full bg-[#F5F8Fc] py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
           <p className="text-[#1A3970] text-sm md:text-base font-semibold mb-2">Our Services</p>
