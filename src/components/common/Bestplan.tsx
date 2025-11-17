@@ -48,7 +48,7 @@ export default function PricingPlans() {
       {/* Background with gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-gray-100"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-12"> 
+      <div className="relative z-10 max-w-7xl mx-auto px-8"> 
         {/* Section Header */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">

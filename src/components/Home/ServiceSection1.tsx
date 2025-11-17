@@ -21,8 +21,32 @@ const services: Service[] = [
 
 const ServicesSection: React.FC = () => {
   const [page, setPage] = useState<number>(0);
-  const cardsPerPage = 3;
+  const [cardsPerPage, setCardsPerPage] = useState<number>(3); // Default to 3 for laptops
+
+  // Determine cards per page based on window width
+  const updateCardsPerPage = () => {
+    if (window.innerWidth < 640) {
+      setCardsPerPage(1); // Mobile
+    } else if (window.innerWidth < 1024) {
+      setCardsPerPage(2); // Tablet
+    } else {
+      setCardsPerPage(3); // Laptop
+    }
+  };
+
+  // Update cards per page on mount and resize
+  useEffect(() => {
+    updateCardsPerPage();
+    window.addEventListener("resize", updateCardsPerPage);
+    return () => window.removeEventListener("resize", updateCardsPerPage);
+  }, []);
+
   const totalPages = Math.ceil(services.length / cardsPerPage);
+
+  // Group services into pages
+  const paginatedServices = Array.from({ length: totalPages }, (_, index) =>
+    services.slice(index * cardsPerPage, (index + 1) * cardsPerPage)
+  );
 
   const handleDotClick = (index: number) => setPage(index);
 
@@ -31,14 +55,17 @@ const ServicesSection: React.FC = () => {
     const interval = setInterval(() => {
       setPage((prev) => (prev + 1) % totalPages);
     }, 3000);
-
     return () => clearInterval(interval);
   }, [totalPages]);
 
+  // Reset page if cardsPerPage changes to avoid out-of-bounds
+  useEffect(() => {
+    setPage(0);
+  }, [cardsPerPage]);
+
   return (
     <section className="w-full bg-[#F5F8Fc] py-16 md:py-20">
-      <div className="max-w-7xl mx-auto px-12">
-
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
           <p className="text-[#1A3970] text-sm md:text-base font-semibold mb-2">Our Services</p>
@@ -51,45 +78,55 @@ const ServicesSection: React.FC = () => {
             className="flex transition-transform duration-700 ease-in-out"
             style={{ transform: `translateX(-${page * 100}%)` }}
           >
-            {services.map((service: Service) => (
-              <div key={service.id} className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 p-3">
-                <div
-                  className="group bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center
-                     transition-all duration-500 hover:bg-[#1894A4] hover:text-white"
-                >
-                  {/* Icon */}
-                  <img
-                    src={service.iconSrc}
-                    alt={service.title}
-                    className={`w-16 h-16 mb-4 transition-all duration-500
-                      ${service.id === "02" ? "filter brightness-0" : ""}
-                      group-hover:filter group-hover:brightness-0 group-hover:invert`}
-                  />
-
-                  {/* Title */}
-                  <h3 className="text-xl font-bold mb-1 transition-colors duration-500 group-hover:text-white">
-                    {service.title}
-                  </h3>
-
-                  {/* Features */}
-                  <ul className="text-gray-600 mb-4 text-sm space-y-1 transition-colors duration-500 group-hover:text-white">
-                    {service.features.map((f: string, i: number) => (
-                      <li key={i} className="flex items-center gap-2">
-                        <span className="text-[#1894A4] transition-colors duration-500 group-hover:text-white">✔</span>
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {/* Button */}
-                  <Link
-                    to={service.route}
-                    className="border border-[#1894A4] text-[#1894A4] px-4 py-2 rounded
-                               transition-colors duration-500 group-hover:bg-white group-hover:text-[#1894A4]"
+            {paginatedServices.map((pageServices, pageIndex) => (
+              <div key={pageIndex} className="w-full flex-shrink-0 flex">
+                {pageServices.map((service: Service) => (
+                  <div
+                    key={service.id}
+                    className={`flex-shrink-0 p-3 ${
+                      cardsPerPage === 1
+                        ? "w-full"
+                        : cardsPerPage === 2
+                        ? "w-1/2"
+                        : "w-1/3"
+                    }`}
                   >
-                    Read more
-                  </Link>
-                </div>
+                    <div
+                      className="group bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center
+                        transition-all duration-500 hover:bg-[#1894A4] hover:text-white h-full"
+                    >
+                      {/* Icon */}
+                      <img
+                        src={service.iconSrc}
+                        alt={service.title}
+                        className={`w-16 h-16 mb-4 transition-all duration-500
+                          ${service.id === "02" ? "filter brightness-0" : ""}
+                          group-hover:filter group-hover:brightness-0 group-hover:invert`}
+                      />
+                      {/* Title */}
+                      <h3 className="text-xl font-bold mb-1 transition-colors duration-500 group-hover:text-white">
+                        {service.title}
+                      </h3>
+                      {/* Features */}
+                      <ul className="text-gray-600 mb-4 text-sm space-y-1 transition-colors duration-500 group-hover:text-white flex-grow">
+                        {service.features.map((f: string, i: number) => (
+                          <li key={i} className="flex items-center gap-2">
+                            <span className="text-[#1894A4] transition-colors duration-500 group-hover:text-white">✔</span>
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                      {/* Button */}
+                      <Link
+                        to={service.route}
+                        className="border border-[#1894A4] text-[#1894A4] px-4 py-2 rounded
+                          transition-colors duration-500 group-hover:bg-white group-hover:text-[#1894A4] mt-auto"
+                      >
+                        Read more
+                      </Link>
+                    </div>
+                  </div>
+                ))}
               </div>
             ))}
           </div>

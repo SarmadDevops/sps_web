@@ -65,7 +65,7 @@ const Navbar = () => {
 
         {/* Main Navbar */}
         <div className="bg-white shadow-md" style={{ height: mainNavHeight }}>
-          <div className="max-w-7xl mx-auto px-12 py-0 h-full flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-8 py-0 h-full flex items-center justify-between">
             {/* Logo */}
             <Link to="/">
               <div className="flex items-center lg:mx-8 w-[118.7px] h-[70px] xl:mx-0">

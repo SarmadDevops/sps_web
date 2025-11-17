@@ -12,7 +12,7 @@ const CarTakaful = () => {
     <div>
       {/* Navbar remains full width */}
       <Navbar />
-      <main className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
+      
         <HeroSection
           backgroundImage="/Heroimage2.png"
           title={
@@ -41,12 +41,9 @@ const CarTakaful = () => {
         <CarTakafulForm />
         <InsuranceDetailsSection />
         <FAQSection />
-      </main>
 
-      {/* Footer with same increased padding */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
         <Footer />
-      </div>
+
     </div>
   );
 };

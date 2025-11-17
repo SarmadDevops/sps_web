@@ -15,7 +15,7 @@ const VehicleInfoSection1 = ({
 }: VehicleInfoProps) => {
   return (
     <section className="w-full bg-white py-8 md:py-12 pb-2 md:pb-4">
-      <div className="max-w-7xl mx-auto px-12"> 
+      <div className="max-w-7xl mx-auto px-8"> 
         {/* Header */}
         <div className="flex flex-col lg:flex-row items-start justify-between mb-4 gap-8">
           {/* Left Side - Text Content */}

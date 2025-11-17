@@ -35,7 +35,7 @@ const HeroSection = ({
           <div className="absolute inset-0 bg-gradient-to-r from-[#1A3970] via-[#1A3970]/95 to-transparent w-3/5 xl:w-1/2"></div>
 
           <div className="relative z-10 h-full flex items-center">
-            <div className="max-w-7xl mx-auto px-12 w-full"> 
+            <div className="max-w-7xl mx-auto px-8 w-full"> 
               <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
                 <h1 className={`text-white ${titleSize} font-bold leading-tight`}>
                   {title}
@@ -62,7 +62,7 @@ const HeroSection = ({
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent w-2/5 xl:w-1/2.5"></div>
 
           <div className="relative z-10 h-full flex items-center">
-            <div className="max-w-7xl mx-auto px-12 w-full">
+            <div className="max-w-7xl mx-auto px-8 w-full">
               <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
                 <h1 className={`text-[#002244] ${titleSize} md:leading-tight font-bold`}>
                   {title}
@@ -86,7 +86,7 @@ const HeroSection = ({
           <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent w-2/5 xl:w-1/2.5"></div>
 
           <div className="relative z-10 h-full flex items-center">
-            <div className="max-w-7xl mx-auto px-12 w-full"> 
+            <div className="max-w-7xl mx-auto px-8 w-full"> 
               <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl">
                 <h1 className={`text-[#002244] ${titleSize} md:leading-tight font-bold`}>
                   {title}
@@ -107,7 +107,7 @@ const HeroSection = ({
             <div className="absolute inset-0 bg-black/50"></div>
           </div>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-12 h-full flex items-center"> 
+          <div className="relative z-10 max-w-7xl mx-auto px-8 h-full flex items-center"> 
             <div className="max-w-2xl">
               <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-4">
                 {title}
