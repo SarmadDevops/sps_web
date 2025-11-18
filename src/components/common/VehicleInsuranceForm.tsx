@@ -334,7 +334,7 @@ const VehicleInsuranceForm = ({
 
   return (
     <section className="w-full bg-white pt-2 md:pt-4 pb-8 md:pb-12">
-      <div className="max-w-7xl mx-auto px-8">
+      <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18">
         {/* Step Indicator */}
         <div className="flex items-center justify-center mb-8">
           <div className="flex items-center gap-4">
