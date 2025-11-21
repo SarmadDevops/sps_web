@@ -270,7 +270,6 @@ const Freeqouteinsurance: React.FC<FreeQuoteProps> = ({
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );
