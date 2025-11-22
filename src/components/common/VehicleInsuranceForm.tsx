@@ -157,8 +157,10 @@ const handleCheckInfo = async () => {
       return {
         id: i + 1,
         company: item.companyName,
-        logo: item.logo || "/Jubileeinsurance.png",
-
+       logo: item.companyLogo 
+  ? `http://localhost:5000${item.companyLogo}` 
+  : "/Jubileeinsurance.png",
+  
         // 🔥 Base rate fixed
         rate: "1.5%",
 
