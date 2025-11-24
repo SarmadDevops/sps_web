@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { ArrowRight } from "lucide-react";
+import { submitHealthForm } from "../../apis/healthApi";
+
 
 const HealthFormCard = () => {
   const [selectedPersonType, setSelectedPersonType] = useState("myself");
@@ -91,16 +93,21 @@ const HealthFormCard = () => {
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = () => {
-    if (!validateForm()) return;
+  const handleSubmit = async () => {
+  if (!validateForm()) return;
 
-    console.log("Health Form Submitted:", {
-      personType: selectedPersonType,
-      treatmentLimit: selectedTreatmentLimit,
-      yourAge: formData.yourAge,
-      spouseAge: formData.spouseAge || "N/A",
-      children: formData.children || "None",
-    });
+  const payload = {
+    personType: selectedPersonType,
+    yourAge: formData.yourAge,
+    spouseAge: formData.spouseAge || "",
+    children: formData.children || "",
+    treatmentLimit: selectedTreatmentLimit,
+  };
+
+  try {
+    const response = await submitHealthForm(payload);
+
+    console.log("API Response:", response);
 
     alert("Form submitted successfully!");
 
@@ -108,8 +115,19 @@ const HealthFormCard = () => {
     setSelectedPersonType("myself");
     setSelectedTreatmentLimit("");
     setFormData({ yourAge: "", spouseAge: "", children: "" });
-    setFormErrors({ yourAge: "", spouseAge: "", children: "", treatmentLimit: "" });
-  };
+    setFormErrors({
+      yourAge: "",
+      spouseAge: "",
+      children: "",
+      treatmentLimit: "",
+    });
+
+  } catch (error: any) {
+    alert(error.message || "Failed to submit health form");
+    console.error("Health form submit error:", error);
+  }
+};
+
 
   const getIconSize = (id: string) => {
     return id === "staff" || id === "parents" ? "w-10 h-10" : "w-8 h-8";
