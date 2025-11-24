@@ -1,0 +1,62 @@
+import React from "react";
+import Navbar from "../components/common/Navbar";
+import FadeUp from "../components/common/FadeUp";
+import Hero from "../components/common/Hero";
+import TrackingProcess from "../components/tracker/TrackingProcess";
+import ChoosingProcess from "../components/tracker/ChoosingProcess";
+import WelcomeCompany from "../components/tracker/WelcomeCompany";
+import Plans from "../components/tracker/Plans";
+import TrackerForm from "../components/tracker/TrackerForm";
+import Facts from "../components/tracker/Facts";
+import Testimonial from "../components/tracker/testimonial";
+import FAQSection from "../components/common/FAQsection";
+import Footer from "../components/common/Footer";
+
+const Tracker = () => {
+  return (
+    <div>
+      <Navbar />
+      <FadeUp>
+        <Hero
+          backgroundImage="/trackerhero.jpg"
+          title={<>Find What Are You Looking For</>}
+          isTrackerPage={true}
+          height="h-[400px] md:h-[450px] lg:h-[500px]"
+          titleSize="text-4xl md:text-5xl"
+        />
+      </FadeUp>
+
+      <FadeUp>
+        <TrackingProcess />
+      </FadeUp>
+      <FadeUp>
+        <ChoosingProcess />
+      </FadeUp>
+
+      <FadeUp>
+        <WelcomeCompany />
+      </FadeUp>
+      <FadeUp>
+        <WelcomeCompany />
+      </FadeUp>
+      <FadeUp>
+        <Plans />
+      </FadeUp>
+      <FadeUp>
+        <TrackerForm />
+      </FadeUp>
+      <FadeUp>
+        <Facts />
+      </FadeUp>
+
+      <FadeUp>
+        <Testimonial />
+      </FadeUp>
+
+      <FAQSection />
+      <Footer />
+    </div>
+  );
+};
+
+export default Tracker;
