@@ -21,14 +21,14 @@ const Navbar = () => {
     { name: "Travel", route: "/travel" },
     { name: "Takaful", route: "/takaful" },
     { name: "About Us", route: "/aboutus" },
+    { name: "Tracker", route: "/tracker" },
   ];
 
   return (
     <>
       <div className="fixed top-0 left-0 w-full z-[999] bg-white shadow-md">
-
         {/* Top Blue Bar */}
-        <nav className="w-full bg-[#1894a4]">
+        <nav className={`w-full bg-[#1894a4]`}>
           <div className="text-white px-4 sm:px-4 py-2 sm:py-3">
             <div className="flex items-center justify-between text-xs sm:text-sm lg:pl-8 w-full">
               <div className="flex-1 flex gap-2 sm:gap-6 min-w-0">
@@ -48,13 +48,22 @@ const Navbar = () => {
               </div>
 
               <div className="flex gap-2 sm:gap-3 flex-shrink-0 ml-2">
-                <a href="https://www.facebook.com/share/1MDgfmAxRX/" target="_blank">
+                <a
+                  href="https://www.facebook.com/share/1MDgfmAxRX/"
+                  target="_blank"
+                >
                   <Facebook className="w-3 h-3 sm:w-4 sm:h-4 hover:opacity-80" />
                 </a>
-                <a href="https://www.linkedin.com/company/secure-path-solutions" target="_blank">
+                <a
+                  href="https://www.linkedin.com/company/secure-path-solutions"
+                  target="_blank"
+                >
                   <Linkedin className="w-3 h-3 sm:w-4 sm:h-4 hover:opacity-80" />
                 </a>
-                <a href="https://www.instagram.com/securepathsolutions.official/" target="_blank">
+                <a
+                  href="https://www.instagram.com/securepathsolutions.official/"
+                  target="_blank"
+                >
                   <Instagram className="w-3 h-3 sm:w-4 sm:h-4 hover:opacity-80" />
                 </a>
               </div>
@@ -66,17 +75,20 @@ const Navbar = () => {
         <div className="bg-white">
           <div className="px-4 md:px-10 lg:px-10 xl:px-16 w-full">
             <div className="flex items-center justify-between w-full">
-
               {/* Logo */}
               <Link to="/">
                 <div className="flex items-center lg:mx-8 w-[118.7px] h-[70px] xl:mx-0">
-                  <img src="/splogo.png" alt="Logo" className="w-[118.7px] h-[70px]" />
+                  <img
+                    src="/splogo.png"
+                    alt="Logo"
+                    className="w-[118.7px] h-[70px]"
+                  />
                   <img src="/securpathsolution.png" alt="Logo Text" />
                 </div>
               </Link>
 
               {/* Desktop Nav */}
-              <div className="hidden md:flex items-center gap-4 md:pl-10 lg:gap-12 lg:pl-0">
+              <div className="hidden md:flex items-center justify-center gap-6 md:pl-10 lg:gap-8 lg:pl-0 w-full">
                 {navItems.map((item) => (
                   <Link
                     key={item.name}
@@ -101,13 +113,16 @@ const Navbar = () => {
                       03317495785
                     </span>
                   </div>
-                          <button className="hidden md:block p-2 hover:bg-gray-100 rounded">
-                <div className="grid grid-cols-3 gap-1">
-                  {[...Array(9)].map((_, i) => (
-                    <div key={i} className="w-1.5 h-1.5 bg-gray-700 rounded-sm"></div>
-                  ))}
-                </div>
-              </button>
+                  <button className="hidden md:block p-2 hover:bg-gray-100 rounded">
+                    <div className="grid grid-cols-3 gap-1">
+                      {[...Array(9)].map((_, i) => (
+                        <div
+                          key={i}
+                          className="w-1.5 h-1.5 bg-gray-700 rounded-sm"
+                        ></div>
+                      ))}
+                    </div>
+                  </button>
                 </a>
 
                 {/* Mobile Icon */}
@@ -115,7 +130,11 @@ const Navbar = () => {
                   onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                   className="lg:hidden p-2 hover:bg-gray-100 rounded"
                 >
-                  {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                  {mobileMenuOpen ? (
+                    <X className="w-6 h-6" />
+                  ) : (
+                    <Menu className="w-6 h-6" />
+                  )}
                 </button>
               </div>
             </div>
