@@ -164,7 +164,8 @@ const handleCheckInfo = async () => {
         // 🔥 Base rate fixed
         rate: "1.5%",
 
-        insurancePlan: "Workshop",
+        insurancePlan: "Workshop ✓",
+
 
         // 🔥 monthly installment removed
         installmentAmount: "",
@@ -412,9 +413,16 @@ const handleCheckInfo = async () => {
                           </div>
 
                           {/* Buttons */}
-                          <button className="w-full bg-[#1A3970] text-white py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors mb-2">
-                            INQUIRE NOW
-                          </button>
+                          
+                           <div className="flex justify-center">
+                  <button
+                    onClick={() => setShowFreeQuote(true)}
+                    disabled={!selectedQuote}
+                    className="w-full bg-[#1A3970] text-white py-2 rounded font-semibold hover:bg-[#2A4D8F] transition-colors mb-2"
+                  >
+                    {selectedQuote ? "INQUIRE NOW" : "Please Select a Plan"}
+                  </button>
+                </div>
 
                           <Link to="/insuranceplan" state={{ quote }}>
                             <button className="w-full bg-gray-600 text-white py-2 rounded font-semibold hover:bg-gray-700 transition-colors">
