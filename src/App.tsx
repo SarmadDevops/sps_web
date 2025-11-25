@@ -18,6 +18,7 @@ import ScrollToTop from "./components/scrollToTop";
 import WhatsAppButton from "./components/common/WhatsappButton";
 import Insuranceplan from "./pages/Insuranceplan";
 import Tracker from "./pages/Tracker";
+import FireTakaful from "./pages/FireTakaful";
 export default function App() {
   return (
     <div className="overflow-x-hidden">
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/aboutus" element={<Aboutus />} />
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/pricingplan" element={<Pricingplan />} />
+        <Route path="/fire-takaful" element={<FireTakaful />} />
         <Route path="/travel-takaful" element={<TravelTakaful/>}/>
         <Route path="/car-takaful" element={<CarTakaful />} />
         <Route path="/bike-takaful" element={<BikeTakaful />} />

@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../components/common/Navbar";
 import FadeUp from "../components/common/FadeUp";
 import Hero from "../components/common/Hero";
@@ -8,7 +7,7 @@ import WelcomeCompany from "../components/tracker/WelcomeCompany";
 import Plans from "../components/tracker/Plans";
 import TrackerForm from "../components/tracker/TrackerForm";
 import Facts from "../components/tracker/Facts";
-import Testimonial from "../components/tracker/testimonial";
+import Testimonial from "../components/tracker/Testimonial";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 
@@ -33,9 +32,6 @@ const Tracker = () => {
         <ChoosingProcess />
       </FadeUp>
 
-      <FadeUp>
-        <WelcomeCompany />
-      </FadeUp>
       <FadeUp>
         <WelcomeCompany />
       </FadeUp>
