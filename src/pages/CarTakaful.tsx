@@ -1,18 +1,21 @@
 
+import FadeUp from "../components/common/FadeUp";
 import FAQSection from "../components/common/FAQsection";
 import Footer from "../components/common/Footer";
 import HeroSection from "../components/common/Hero";
 import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
 import Navbar from "../components/common/Navbar";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
-import CarTakafulForm from "../components/Takaful/CarTakaful/CarTakafulForm";
+import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
+import { carFormFields } from "../config/formFields";
+// import CarTakafulForm from "../components/Takaful/CarTakaful/CarTakafulForm";
 
 const CarTakaful = () => {
   return (
     <div>
       {/* Navbar remains full width */}
       <Navbar />
-      
+      <FadeUp>
         <HeroSection
           backgroundImage="/Heroimage2.png"
           title={
@@ -26,6 +29,8 @@ const CarTakaful = () => {
           height="h-[400px] md:h-[450px] lg:h-[500px]"
           titleSize="text-4xl md:text-5xl"
         />
+        </FadeUp>
+        <FadeUp>
         <VehicleInfoHeader
           vehicleType="car"
           title={
@@ -38,9 +43,23 @@ const CarTakaful = () => {
           subtitle="Compare & find coverage for your car from top insurance providers in Pakistan."
           vehicleImage="/Vehicleinfosection1image1.png"
         />
-        <CarTakafulForm />
+        </FadeUp>
+
+        {/* <CarTakafulForm /> */}
+
+        <FadeUp>
+        <VehicleInsuranceForm
+        vehicleType="car"
+        formFields={carFormFields}
+        // apiEndpoint="/api/car-insurance-quotes"
+      />
+      </FadeUp>
+      <FadeUp>
         <InsuranceDetailsSection />
+        </FadeUp>
+        <FadeUp>
         <FAQSection />
+        </FadeUp>
 
         <Footer />
 
