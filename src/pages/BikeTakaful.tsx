@@ -4,12 +4,16 @@ import Footer from "../components/common/Footer";
 import HeroSection from "../components/common/Hero";
 import VehicleInfoHeader from "../components/common/VehicleInfoHeader";
 import InsuranceDetailsSection from "../components/common/Insurancedetailssection";
+import FadeUp from "../components/common/FadeUp";
+import VehicleInsuranceForm from "../components/common/VehicleInsuranceForm";
+import { bikeFormFields } from "../config/formFields";
 import BikeTakafulForm from "../components/Takaful/BikeTakaful/BikeTakafulForm";
 
 const BikeTakaful = () => {
   return (
     <div>
       <Navbar />  
+      <FadeUp>
       <HeroSection
         backgroundImage="/Bikeinsurancepolicyimage.jpg"
         title={
@@ -23,6 +27,8 @@ const BikeTakaful = () => {
         height="h-[400px] md:h-[450px] lg:h-[500px]"
         titleSize="text-4xl md:text-5xl"
       />
+      </FadeUp>
+      <FadeUp>
       <VehicleInfoHeader
         vehicleType="bike"
         title={
@@ -35,9 +41,23 @@ const BikeTakaful = () => {
         subtitle="Compare & find coverage for your bike from top insurance providers in Pakistan."
         vehicleImage="/Bikeimage.png"
       />
-     <BikeTakafulForm />
+      </FadeUp>
+     
+     {/* <BikeTakafulForm /> */}
+      
+       <FadeUp>
+      <VehicleInsuranceForm
+        vehicleType="bike"
+        formFields={bikeFormFields}
+        // apiEndpoint="/api/bike-insurance-quotes"
+      />
+      </FadeUp>
+      <FadeUp>
       <InsuranceDetailsSection />
+      </FadeUp>
+      <FadeUp>
       <FAQSection />
+      </FadeUp>
       <Footer />
     </div>
   );

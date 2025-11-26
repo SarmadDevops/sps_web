@@ -127,23 +127,6 @@ export const bikeFormFields = [
     maxLength: 30,
   },
   {
-    name: "bikeCC",
-    label: "What is your Bike CC?",
-    type: "select" as const,
-    placeholder: "--- Select Bike CC ---",
-    required: true,
-    options: [
-      { value: "70cc", label: "70 CC" },
-      { value: "100cc", label: "100 CC" },
-      { value: "125cc", label: "125 CC" },
-      { value: "150cc", label: "150 CC" },
-      { value: "200cc", label: "200 CC" },
-      { value: "250cc", label: "250 CC" },
-      { value: "above250", label: "Above 250 CC" },
-    ],
-  },
-
-  {
     name: "model",
     label: "What is your bike model year?",
     type: "select" as const,
