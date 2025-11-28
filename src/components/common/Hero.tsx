@@ -13,7 +13,8 @@ interface HeroProps {
 
 const HeroSection = ({
   backgroundImage = "/Hero.jpg",
-  title = "Empowering Your Business Goal And Success Us",
+  title = "Secure Today, Smile Tomorrow",
+  heading="Trusted insurance solutions for a secure and worry-free future.",
   isCarPage = false,
   isBikePage = false,
   isKafalaPage = false,
@@ -256,6 +257,7 @@ const HeroSection = ({
               <h1 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold leading-tight mb-4">
                 {title}
               </h1>
+              <p className="text-white text-lg md:text-xl">{heading}</p>
 
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-1 h-8 bg-white"></div>

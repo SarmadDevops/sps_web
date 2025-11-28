@@ -11,12 +11,12 @@ interface Service {
 }
 
 const services: Service[] = [
-  { id: "01", iconSrc: "/caricon.png", title: "Car Insurance", features: ["Vacuum / mop floors", "Dust all furniture", "Clean the toilet"], route: "/car" },
-  { id: "02", iconSrc: "/Healthicon.png", title: "Health Insurance", features: ["Vacuum / mop floors", "Dust all furniture", "Clean the toilet"], route: "/health" },
-  { id: "03", iconSrc: "/motorcycleicon.png", title: "Bike Insurance", features: ["Vacuum / mop floors", "Dust all furniture", "Clean the toilet"], route: "/bike" },
-  { id: "04", iconSrc: "/Travelicon.png", title: "Travel Insurance", features: ["Vacuum / mop floors", "Dust all furniture", "Clean the toilet"], route: "/travel" },
-  { id: "05", iconSrc: "/travel-icon.png", title: "IT Services", features: ["Vacuum / mop floors", "Dust all furniture", "Clean the toilet"], route: "/it-consulting" },
-  { id: "06", iconSrc: "/takaful-icon.png", title: "Takaful", features: ["Vacuum / mop floors", "Dust all furniture", "Clean the toilet"], route: "/takaful" },
+  { id: "01", iconSrc: "/caricon.png", title: "Car Insurance", features: ["Full Safety For Your Cars", "Fast Claim Assistance", "24/7 Roadside Support"], route: "/car" },
+  { id: "02", iconSrc: "/Healthicon.png", title: "Health Insurance", features: ["Covers Hospital Expense", "Protects Your Family Health", "Easy Cashless Treatment"], route: "/health" },
+  { id: "03", iconSrc: "/motorcycleicon.png", title: "Bike Insurance", features: ["Easy And Low Cost Plans", "Theft Protection", "Affordable Premium Plans"], route: "/bike" },
+  { id: "04", iconSrc: "/Travelicon.png", title: "Travel Insurance", features: ["Medical Emergency Coverage", "Cover Trip Delay", "Worldwide Assistance"], route: "/travel" },
+  { id: "05", iconSrc: "/travel-icon.png", title: "IT Services", features: ["Network Security Solutions", "Data Backup & Recovery", "24/7 Techinal Support"], route: "/it-consulting" },
+  { id: "06", iconSrc: "/takaful-icon.png", title: "Takaful", features: ["Shariah-Compliant Coverage", "Health Protection Plans", "transparent & Ethical Policies"], route: "/takaful" },
 ];
 
 const ServicesSection: React.FC = () => {
