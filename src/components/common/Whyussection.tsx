@@ -98,18 +98,16 @@ const WhyUsSection = () => {
             </p>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-              <span className="text-black">Strategic Edge Advisors</span>
+              <span className="text-black">Your Trusted</span>
               <br />
-              <span className="text-[#1894a4]">Innovating Your</span>
+              <span className="text-[#1894a4]">Partner in </span>
               <br />
-              <span className="text-[#1A3970]">Business Landscape</span>
+              <span className="text-[#1A3970]">Insurance Protection</span>
             </h2>
 
             <p className="text-gray-600 leading-relaxed mb-8">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium totam rem aperiam eaque abillo
-              inventore veritatis quasi architecto beatae vitae dicta sunt
-              explicabo nemo enim ipsam voluptatem quia.
+             We don’t just sell insurance we build trust. Our focus is to give you reliable coverage, fast support, and complete peace of mind.
+We understand your needs and offer simple, affordable, and flexible insurance plans that protect what matters most in your life.
             </p>
 
             {/* Progress Circles */}
@@ -123,10 +121,10 @@ const WhyUsSection = () => {
                   triggerAnimation={inView}
                 />
                 <h3 className="text-lg font-bold text-black mt-4 mb-2">
-                  Business Strategy
+                  Claims Success
                 </h3>
                 <p className="text-gray-600 text-sm text-center">
-                  Sed ut perspiciatis unde omnis iste natus error sit volupta
+                  Fast and Hassle-Free Claim Process
                 </p>
               </div>
 
@@ -139,10 +137,10 @@ const WhyUsSection = () => {
                   triggerAnimation={inView}
                 />
                 <h3 className="text-lg font-bold text-black mt-4 mb-2">
-                  Financial Planning
+                  Customer Satisfaction
                 </h3>
                 <p className="text-gray-600 text-sm text-center">
-                  Sed ut perspiciatis unde omnis iste natus error sit volupta
+                 Trusted By Thousands Of Happy Clients
                 </p>
               </div>
             </div>
@@ -167,6 +165,12 @@ const WhyUsSection = () => {
                 bgColor="#E3EFF0"
                 triggerAnimation={inView}
               />
+               <h3 className="text-lg font-bold text-black mt-4 mb-2 text-center">
+                  Reliable Coverage
+                </h3>
+                <p className="text-gray-600 text-sm text-center">
+                 Coverage you can trust
+                </p>
             </div>
 
             {/* Image Container */}

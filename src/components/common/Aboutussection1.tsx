@@ -42,55 +42,23 @@ const AboutUsSection1 = () => {
           </div>
 
           {/* Right Side - Content */}
-          <div>
-            {/* Radio Buttons */}
-            <div className="flex flex-wrap gap-8 mb-6">
-              <div>
-                <p className="text-sm font-semibold text-gray-700 mb-2">Vehicle for:</p>
-                <div className="flex flex-col gap-2">
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="vehicle" className="w-4 h-4 text-[#1894a4]" />
-                    <span className="text-gray-700">Commercial use</span>
-                  </label>
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="vehicle" className="w-4 h-4 text-[#1894a4]" defaultChecked />
-                    <span className="text-gray-700">Personal Use</span>
-                  </label>
-                </div>
-              </div>
-
-              <div>
-                <p className="text-sm font-semibold text-gray-700 mb-2">Policy status:</p>
-                <div className="flex flex-col gap-2">
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="policy" className="w-4 h-4 text-[#1894a4]" />
-                    <span className="text-gray-700">Policy Expired</span>
-                  </label>
-                  <label className="flex items-center gap-2 cursor-pointer">
-                    <input type="radio" name="policy" className="w-4 h-4 text-[#1894a4]" defaultChecked />
-                    <span className="text-gray-700">Policy not expired</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-
-            {/* Section Title */}
-            <p className="text-[#1894a4] text-sm md:text-base font-semibold mb-2">About Company</p>
+          <div className="self-start -mt-2 lg:-mt-3">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
-              Driving Your Business Success Through{' '}
-              <span className="text-[#1894a4]">Expert Guidance</span>
+              Driving Your Peace Of Mind Through{' '}
+              <span className="text-[#1894a4]">Trusted Insurance</span>
             </h2>
 
             {/* Subtitle */}
             <p className="text-[#1A3970] text-lg font-semibold mb-4">
-              Unlocking Growth Exploring The Powerhouse Features Of Our{' '}
-              <span className="text-[#1894a4]">Business Solutions</span>
+             Our Goal is Clear: to Secure Your Today And Give You a Worry-Free Tomorrow.{' '}
             </p>
 
             {/* Description with left border */}
+
             <div className="border-l-4 border-[#1894a4] pl-4 mb-8">
               <p className="text-gray-600 leading-relaxed">
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque abillo inventore veritatis quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam voluptatem quia.
+               At our company, we believe insurance is more than just a policy it’s a promise. We provide reliable and easy insurance solutions that protect your health, vehicles, travel, and future.
+With years of industry experience, we help individuals and businesses feel safe by offering simple, affordable, and transparent coverage plans designed to fit real-life needs.
               </p>
             </div>
 
@@ -100,9 +68,9 @@ const AboutUsSection1 = () => {
               <div className="flex items-center gap-4">
                 <ArrowRight className="w-6 h-6 text-[#1894a4] flex-shrink-0" />
                 <div className="flex items-baseline gap-3">
-                  <h3 className="text-4xl md:text-5xl font-bold text-[#1894a4]">2359</h3>
+                  <h3 className="text-4xl md:text-5xl font-bold text-[#1894a4]">1000+</h3>
                   <p className="text-gray-700 font-medium">
-                    Projects Completed in<br />Last 5 Years
+                   Policies Successfully Issued<br />Last 5 Years
                   </p>
                 </div>
               </div>
@@ -111,9 +79,9 @@ const AboutUsSection1 = () => {
               <div className="flex items-center gap-4">
                 <ArrowRight className="w-6 h-6 text-[#1894a4] flex-shrink-0" />
                 <div className="flex items-baseline gap-3">
-                  <h3 className="text-4xl md:text-5xl font-bold text-[#1894a4]">5368</h3>
+                  <h3 className="text-4xl md:text-5xl font-bold text-[#1894a4]">5,000</h3>
                   <p className="text-gray-700 font-medium">
-                    Happy Global Customers<br />Who Trusted Us
+                    Happy & Protected Customer
                   </p>
                 </div>
               </div>

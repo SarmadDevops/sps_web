@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { ArrowRight, AlertCircle } from "lucide-react";
-
+import { submitHealthTakafulForm } from "../../../apis/healthTakafulApi";
 import { healthTakafulFormFields } from "../../../config/formFields";
+import toast from "react-hot-toast"; // ✅ Toaster added
 
 const validateEmail = (email: string): boolean => {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -15,13 +16,13 @@ const validatePhone = (phone: string): boolean => {
 
 const getFieldLabel = (name: string): string => {
   const labels: Record<string, string> = {
-    yourName: "Your Name",
-    companyName: "Company Name",
-    workEmail: "Work Email",
+    name: "Your Name",
+    companyname: "Company Name",
+    workmail: "Work Email",
     city: "City",
-    employeeCount: "Number of Employees",
-    insured: "Insurance Status",
-    phoneNumber: "Phone Number",
+    noofemployees: "Number of Employees",
+    surety: "Insurance Status",
+    phone: "Phone Number",
   };
   return labels[name] || name;
 };
@@ -29,6 +30,7 @@ const getFieldLabel = (name: string): string => {
 const HealthTakaful = () => {
   const [formData, setFormData] = useState<Record<string, string>>({});
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [loading, setLoading] = useState(false); // ✅ loading state
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -45,63 +47,77 @@ const HealthTakaful = () => {
       (field: (typeof healthTakafulFormFields)[number]) => {
         const value = formData[field.name] || "";
         if (field.required && !value.trim()) {
-          newErrors[field.name] = `Enter a valid ${getFieldLabel(
-            field.name
-          ).toLowerCase()}`;
+          newErrors[field.name] = `Enter a valid ${getFieldLabel(field.name).toLowerCase()}`;
         }
+
         if (field.name === "workEmail") {
-          if (!value.trim()) newErrors[field.name] = "Enter a valid email";
-          else if (!validateEmail(value))
+          if (!validateEmail(value)) {
             newErrors[field.name] = "Enter a valid email";
+          }
         }
       }
     );
 
     const phone = formData.phoneNumber || "";
-    if (!phone.trim()) newErrors.phoneNumber = "Enter a valid phone number";
-    else if (!validatePhone(phone))
-      newErrors.phoneNumber =
-        "Enter a valid 10-digit PK mobile (e.g., 3001234567)";
+    if (!validatePhone(phone))
+      newErrors.phoneNumber = "Enter valid 10-digit PK mobile (300-1234567)";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (validateForm()) {
-      console.log("Health Takaful Form Data:", formData);
-      alert("Health Takaful form submitted successfully!");
+
+    if (!validateForm()) return;
+
+    try {
+      setLoading(true);
+      toast.loading("Submitting..."); // ✅ toaster
+
+      const payload = {
+        name: formData.yourName || "",
+        companyname: formData.companyName || "",
+        workmail: formData.workEmail || "",
+        phone: formData.phoneNumber || "",
+        city: formData.city || "",
+        noofemployees: Number(formData.employeeCount) || 0,
+        surety: formData.insured || "",
+      };
+
+      await submitHealthTakafulForm(payload);
+
+      toast.dismiss();
+      toast.success("Form submitted successfully!"); // ✅ success toaster
+
       setFormData({});
       setErrors({});
+    } catch (error: any) {
+      toast.dismiss();
+      toast.error(error.message || "Failed to submit form!"); // ✅ error toaster
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="w-full bg-[#F4F9FE] min-h-screen">
       <div className="w-full px-4 md:px-10 lg:px-10 xl:px-16 2xl:px-18 py-8">
-        {/* Main Card */}
         <div className="flex flex-col md:flex-row justify-between bg-white shadow-md rounded-lg p-4 sm:p-6 md:p-8 gap-4 md:gap-8 border border-gray-100 overflow-hidden">
-          {/* Left Section - Same UI */}
+          {/* Left Section */}
           <div className="flex-1 min-w-0 space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-sm text-gray-700">
               <div className="min-w-0 flex-shrink">
                 <p className="truncate">
-                  <span className="font-semibold">Name:</span> Osama Bin
-                  Jahangir
+                  <span className="font-semibold">Name:</span> Osama Bin Jahangir
                 </p>
                 <p className="truncate">
-                  <span className="font-semibold">Email:</span>{" "}
-                  osamajahangir786@gmail.com
+                  <span className="font-semibold">Email:</span> osamajahangir786@gmail.com
                 </p>
               </div>
               <div className="mt-2 sm:mt-0 flex-shrink-0">
-                <p>
-                  <span className="font-semibold">Gender:</span> Male
-                </p>
-                <p>
-                  <span className="font-semibold">Phone:</span> +923314272709
-                </p>
+                <p><span className="font-semibold">Gender:</span> Male</p>
+                <p><span className="font-semibold">Phone:</span> +923314272709</p>
               </div>
             </div>
 
@@ -123,13 +139,12 @@ const HealthTakaful = () => {
                 for as low as Rs. 190/year
               </p>
               <p className="text-gray-600 text-xs">
-                Accidental Death Coverage up to Rs. 15 Lakh. Buy online in 10
-                minutes
+                Accidental Death Coverage up to Rs. 15 Lakh. Buy online in 10 minutes
               </p>
             </div>
           </div>
 
-          {/* Right Section - Health Form */}
+          {/* Right Section */}
           <div className="flex-1 min-w-0 bg-gray-50 rounded-lg shadow-lg p-3 sm:p-4 border border-gray-200">
             <div className="bg-white rounded-lg p-3">
               <h3 className="text-center font-semibold text-gray-700 mb-3 text-sm">
@@ -188,18 +203,12 @@ const HealthTakaful = () => {
                               >
                                 <option value="">Number of employees</option>
                                 {healthTakafulFormFields
-                                  .find(
-                                    (
-                                      f: (typeof healthTakafulFormFields)[number]
-                                    ) => f.name === "employeeCount"
-                                  )
-                                  ?.options?.map(
-                                    (opt: { value: string; label: string }) => (
-                                      <option key={opt.value} value={opt.value}>
-                                        {opt.label}
-                                      </option>
-                                    )
-                                  )}
+                                  .find((f) => f.name === "employeeCount")
+                                  ?.options?.map((opt: { value: string; label: string }) => (
+                                    <option key={opt.value} value={opt.value}>
+                                      {opt.label}
+                                    </option>
+                                  ))}
                               </select>
                               {errors.employeeCount && (
                                 <div className="flex items-center gap-1 text-red-600 text-xs">
@@ -223,13 +232,11 @@ const HealthTakaful = () => {
                               required={field.required}
                             >
                               <option value="">{field.placeholder}</option>
-                              {field.options?.map(
-                                (opt: { value: string; label: string }) => (
-                                  <option key={opt.value} value={opt.value}>
-                                    {opt.label}
-                                  </option>
-                                )
-                              )}
+                              {field.options?.map((opt: { value: string; label: string }) => (
+                                <option key={opt.value} value={opt.value}>
+                                  {opt.label}
+                                </option>
+                              ))}
                             </select>
                             {errors[field.name] && (
                               <div className="flex items-center gap-1 text-red-600 text-xs">
@@ -241,9 +248,7 @@ const HealthTakaful = () => {
                         ) : (
                           <div className="space-y-1">
                             <input
-                              type={
-                                field.name === "workEmail" ? "email" : "text"
-                              }
+                              type={field.name === "workEmail" ? "email" : "text"}
                               name={field.name}
                               value={formData[field.name] || ""}
                               onChange={handleInputChange}
@@ -296,9 +301,16 @@ const HealthTakaful = () => {
 
                 <button
                   type="submit"
+                  disabled={loading}
                   className="w-full py-2.5 rounded-lg font-semibold transition-all flex items-center justify-center gap-2 text-sm mt-4 bg-[#FF8C00] hover:bg-[#FF7700] text-white shadow-md"
                 >
-                  Submit <ArrowRight className="w-4 h-4" />
+                  {loading ? (
+                    <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                  ) : (
+                    <>
+                      Submit <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
               </form>
             </div>
